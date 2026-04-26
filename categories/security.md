@@ -4,6 +4,7 @@ tools:
   - { name: "Garak",     repo: "NVIDIA/garak" }
   - { name: "PyRIT",     repo: "Azure/PyRIT" }
   - { name: "LLM Guard", repo: "protectai/llm-guard" }
+  - { name: "agentic_security", repo: "msoedov/agentic_security" }
 last_reviewed: 2026-04-26
 ---
 
@@ -76,3 +77,22 @@ Input/output scanners for LLM apps: PII, prompt injection, toxicity, secrets, co
 #### Sources
 - Repo: https://github.com/protectai/llm-guard
 <!-- END TOOL: protectai/llm-guard -->
+
+<!-- BEGIN TOOL: msoedov/agentic_security -->
+### agentic_security
+<!-- repo: msoedov/agentic_security -->
+
+#### What it is
+Open-source vulnerability scanner targeted at agent workflows and LLM-fronting APIs. Probes multimodal input (text / image / audio), runs multi-step jailbreak chains, fuzzes inputs, and includes RL-based adaptive probes that evolve against the target's defenses.
+
+#### When to reach for it
+- You're shipping an agent that takes untrusted input across modalities (vision-enabled assistants, voice agents) and need pre-deploy red-teaming that goes beyond text-only test sets.
+- Multi-step jailbreaks (rather than one-shot prompt-injection) are an in-scope threat for your deployment.
+
+#### When not to
+- Single-text-input chat surfaces with a narrow threat model — Garak's text-focused probe library is closer to the size of the problem.
+- Runtime input/output policy enforcement — that's LLM Guard's shape; this tool is pre-deploy scanning, not request-time guardrails.
+
+#### Sources
+- Repo: https://github.com/msoedov/agentic_security
+<!-- END TOOL: msoedov/agentic_security -->

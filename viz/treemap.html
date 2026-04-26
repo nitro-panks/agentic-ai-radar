@@ -7,19 +7,21 @@
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <style>
     :root {
-      --bg: #ffffff;
-      --panel: #f6f8fa;
-      --border: #d0d7de;
-      --text: #1f2328;
-      --muted: #57606a;
-      --link: #555;
-      --link-hover: #a503fc;
+      color-scheme: dark;
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --link: #8b949e;
+      --link-hover: #c084fc;
       /* deploy_status palette — color-blind safe (ColorBrewer-ish), paired
-         with emoji glyphs in the legend so hue is never the only channel. */
-      --prod: #2c7a3e;        /* 🟢 */
-      --beta: #b58105;        /* 🟡 */
-      --deprecated: #c04a4a;  /* 🔴 */
-      --untriaged: #8a929b;   /* — */
+         with emoji glyphs in the legend so hue is never the only channel.
+         Tuned for sufficient contrast on the dark background. */
+      --prod: #3fb950;        /* 🟢 */
+      --beta: #d29922;        /* 🟡 */
+      --deprecated: #f85149;  /* 🔴 */
+      --untriaged: #6e7681;   /* — */
     }
     * { box-sizing: border-box; }
     html, body {
@@ -74,7 +76,7 @@
     }
     header.chrome select,
     header.chrome input[type="search"] {
-      background: #fff;
+      background: var(--bg);
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: 4px;
@@ -92,7 +94,7 @@
     header.chrome kbd {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
-      background: #fff;
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 3px;
       padding: 1px 5px;
@@ -109,7 +111,7 @@
     .cell {
       position: absolute;
       overflow: hidden;
-      border: 1px solid #fff;
+      border: 1px solid var(--bg);
       transition: opacity 0.1s ease, outline 0.1s ease;
       cursor: pointer;
     }
@@ -152,13 +154,13 @@
     #tooltip {
       position: absolute;
       pointer-events: none;
-      background: #fff;
+      background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 10px 12px;
       font-size: 12px;
       max-width: 320px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.55);
       opacity: 0;
       transition: opacity 0.08s ease;
       z-index: 10;
@@ -184,11 +186,11 @@
       margin-right: 4px;
       border: 1px solid var(--border);
       color: var(--muted);
-      background: var(--panel);
+      background: var(--bg);
     }
-    #tooltip .badge.prod       { color: #fff; background: var(--prod);       border-color: var(--prod); }
-    #tooltip .badge.beta       { color: #fff; background: var(--beta);       border-color: var(--beta); }
-    #tooltip .badge.deprecated { color: #fff; background: var(--deprecated); border-color: var(--deprecated); }
+    #tooltip .badge.prod       { color: #0d1117; background: var(--prod);       border-color: var(--prod); }
+    #tooltip .badge.beta       { color: #0d1117; background: var(--beta);       border-color: var(--beta); }
+    #tooltip .badge.deprecated { color: #fff;    background: var(--deprecated); border-color: var(--deprecated); }
     #tooltip table { border-collapse: collapse; width: 100%; }
     #tooltip td { padding: 1px 0; }
     #tooltip td:first-child { color: var(--muted); padding-right: 12px; }
@@ -206,7 +208,7 @@
       position: absolute;
       bottom: 12px;
       right: 12px;
-      background: rgba(255,255,255,0.94);
+      background: rgba(22,27,34,0.94);
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 8px 12px;
@@ -217,7 +219,7 @@
       align-items: center;
       flex-wrap: wrap;
       max-width: 60%;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.45);
     }
     .legend .swatch {
       display: inline-block;
@@ -226,7 +228,7 @@
       border-radius: 2px;
       margin-right: 4px;
       vertical-align: middle;
-      border: 1px solid rgba(0,0,0,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
     }
     .legend .item { white-space: nowrap; color: var(--text); }
 

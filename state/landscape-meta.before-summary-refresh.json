@@ -2,77 +2,77 @@
   "_comment": "Human-curated overlay for landscape.md. deploy_status: prod (\ud83d\udfe2) | beta (\ud83d\udfe1) | deprecated (\ud83d\udd34). Omit a key to leave a tool untriaged (\u2014 in the table).",
   "langchain-ai/langgraph": {
     "deploy_status": "prod",
-    "notes": "default for stateful agent flows; checkpoints + HITL primitives",
+    "notes": "default for stateful agent flows",
     "last_reviewed": "2026-04-26"
   },
   "crewAIInc/crewAI": {
     "deploy_status": "beta",
-    "notes": "role-playing agents with hierarchical task delegation; crew abstraction",
+    "notes": "good when role/crew is the natural abstraction",
     "last_reviewed": "2026-04-26"
   },
   "microsoft/autogen": {
     "deploy_status": "beta",
-    "notes": "multi-agent conversation loops; agents as actors with message-passing",
+    "notes": "v0.4 split \u2014 re-evaluate after 0.5",
     "last_reviewed": "2026-04-26"
   },
   "pydantic/pydantic-ai": {
     "deploy_status": "prod",
-    "notes": "strict typing & validation via Pydantic schemas; type-safe agent I/O",
+    "notes": "preferred when typing matters",
     "last_reviewed": "2026-04-26"
   },
   "huggingface/smolagents": {
     "deploy_status": "beta",
-    "notes": "barebones code-execution agent primitives; bring your own sandbox",
+    "notes": "code-execution agents; needs sandbox discipline",
     "last_reviewed": "2026-04-26"
   },
   "vllm-project/vllm": {
     "deploy_status": "prod",
-    "notes": "high-throughput GPU serving with PagedAttention memory management",
+    "notes": "default GPU serving",
     "last_reviewed": "2026-04-26"
   },
   "ollama/ollama": {
     "deploy_status": "prod",
-    "notes": "default for local model hosting; one-command setup, laptop-friendly inference",
+    "notes": "default for laptop/dev",
     "last_reviewed": "2026-04-26"
   },
   "ggml-org/llama.cpp": {
     "deploy_status": "prod",
-    "notes": "CPU-first inference; quantization for laptops and edge without GPU dependency",
+    "notes": "CPU/edge fallback",
     "last_reviewed": "2026-04-26"
   },
   "sgl-project/sglang": {
     "deploy_status": "beta",
-    "notes": "high-throughput serving optimized for prefix caching in agentic loops",
+    "notes": "great for prefix-cached agentic loops",
     "last_reviewed": "2026-04-26"
   },
   "BerriAI/litellm": {
     "deploy_status": "prod",
-    "notes": "OpenAI-shaped proxy for 100+ providers; built-in cost tracking & load balancing",
+    "notes": "default routing/proxy",
     "last_reviewed": "2026-04-26"
   },
   "run-llama/llama_index": {
     "deploy_status": "prod",
-    "notes": "broad RAG ecosystem; document loaders, indices, and multi-stage retrieval pipelines",
+    "notes": "broad RAG ecosystem",
     "last_reviewed": "2026-04-26"
   },
   "deepset-ai/haystack": {
     "deploy_status": "beta",
-    "notes": "pipeline orchestration for RAG; explicit control over retrieval + generation flow",
+    "notes": "production-leaning RAG",
     "last_reviewed": "2026-04-26"
   },
   "infiniflow/ragflow": {
     "deploy_status": "beta",
-    "notes": "opinionated RAG stack; deep PDF/document parsing + visual chunking strategies",
+    "notes": "strong PDF parsing; opinionated",
     "last_reviewed": "2026-04-26"
   },
   "qdrant/qdrant": {
     "deploy_status": "prod",
-    "notes": "dedicated vector DB; performance-first Rust engine for large-scale semantic search",
+    "notes": "default dedicated vector store",
     "last_reviewed": "2026-04-26"
   },
   "weaviate/weaviate": {
     "deploy_status": "beta",
-    "notes": "cloud-native vector DB with hybrid search and structured filtering built-in",
+    "notes": "pick when hybrid search is central",
     "last_reviewed": "2026-04-26"
   },
   "chroma-core/chroma": {
@@ -82,177 +82,177 @@
   },
   "pgvector/pgvector": {
     "deploy_status": "prod",
-    "notes": "vectors in Postgres \u2014 when transactional consistency with rows matters",
+    "notes": "default when Postgres is in the stack",
     "last_reviewed": "2026-04-26"
   },
   "milvus-io/milvus": {
     "deploy_status": "beta",
-    "notes": "cloud-native vector DB for hundreds-of-millions+ scale; distributed ANN search",
+    "notes": "for hundreds-of-millions+ vectors",
     "last_reviewed": "2026-04-26"
   },
   "promptfoo/promptfoo": {
     "deploy_status": "prod",
-    "notes": "declarative eval & red-team configs; CLI-first for CI/CD integration",
+    "notes": "default eval-as-code in CI",
     "last_reviewed": "2026-04-26"
   },
   "confident-ai/deepeval": {
     "deploy_status": "beta",
-    "notes": "pytest-shaped LLM tests; native CI integration and familiar assertions",
+    "notes": "pytest-shaped LLM tests",
     "last_reviewed": "2026-04-26"
   },
   "langfuse/langfuse": {
     "deploy_status": "prod",
-    "notes": "default self-hosted obs+evals; prompt management & datasets alongside traces",
+    "notes": "default self-hosted obs+evals",
     "last_reviewed": "2026-04-26"
   },
   "Arize-ai/phoenix": {
     "deploy_status": "beta",
-    "notes": "OTel-native observability; spans for LLM traces + built-in evaluation",
+    "notes": "OTel-native alternative",
     "last_reviewed": "2026-04-26"
   },
   "modelcontextprotocol/modelcontextprotocol": {
     "deploy_status": "prod",
-    "notes": "canonical spec for LLM\u2194tool integration; remote resource & tool discovery",
+    "notes": "spec is canonical for tool integration",
     "last_reviewed": "2026-04-26"
   },
   "browser-use/browser-use": {
     "deploy_status": "beta",
-    "notes": "Python browser agent; ergonomic DOM access + multi-step navigation primitives",
+    "notes": "Python browser agent of choice",
     "last_reviewed": "2026-04-26"
   },
   "browserbase/stagehand": {
     "deploy_status": "beta",
-    "notes": "TypeScript-first browser automation SDK with agent-friendly DOM abstractions",
+    "notes": "TS browser agent of choice",
     "last_reviewed": "2026-04-26"
   },
   "Aider-AI/aider": {
     "deploy_status": "prod",
-    "notes": "terminal pair-programmer; auto-commits each edit",
+    "notes": "terminal pair-programmer",
     "last_reviewed": "2026-04-26"
   },
   "cline/cline": {
     "deploy_status": "prod",
-    "notes": "VS Code extension; agentic pair-programmer with file, terminal & browser control",
+    "notes": "VS Code agent of choice",
     "last_reviewed": "2026-04-26"
   },
   "NVIDIA/garak": {
     "deploy_status": "prod",
-    "notes": "pre-deploy LLM red-team scanner; broad probe library for vulnerability testing",
+    "notes": "default pre-deploy red-team scanner",
     "last_reviewed": "2026-04-26"
   },
   "Azure/PyRIT": {
     "deploy_status": "beta",
-    "notes": "red-team toolkit for GenAI; scripting attacks, probes, and multi-turn jailbreaks",
+    "notes": "upstream archived; investigate successor (red-team toolkit)",
     "last_reviewed": "2026-04-26"
   },
   "protectai/llm-guard": {
     "deploy_status": "prod",
-    "notes": "runtime input/output guardrails library; default for prompt injection & PII defense",
+    "notes": "default runtime input/output guardrails",
     "last_reviewed": "2026-04-26"
   },
   "temporalio/temporal": {
     "deploy_status": "prod",
-    "notes": "durable execution substrate; agents that survive process crashes",
+    "notes": "default durable runtime for long agents",
     "last_reviewed": "2026-04-26"
   },
   "inngest/inngest": {
     "deploy_status": "beta",
-    "notes": "event-driven durable workflows; zero-infra orchestration for serverless & edge",
+    "notes": "TS/Node-friendly alternative",
     "last_reviewed": "2026-04-26"
   },
   "mem0ai/mem0": {
     "deploy_status": "beta",
-    "notes": "persistent memory layer for agents to recall facts across sessions and users",
+    "notes": "user-personalization memory",
     "last_reviewed": "2026-04-26"
   },
   "letta-ai/letta": {
     "deploy_status": "beta",
-    "notes": "stateful agents with persistent memory; learn and evolve across sessions",
+    "notes": "stateful agents server (ex-MemGPT)",
     "last_reviewed": "2026-04-26"
   },
   "qualixar/superlocalmemory": {
     "deploy_status": "beta",
-    "notes": "local-only memory; strong retrieval without cloud APIs or model calls",
+    "notes": "local-only memory + MCP server; in-use for Claude Code sessions",
     "last_reviewed": "2026-04-26"
   },
   "pipecat-ai/pipecat": {
     "deploy_status": "beta",
-    "notes": "real-time voice pipelines; frame-by-frame transport abstraction for conversational AI",
+    "notes": "real-time voice pipelines",
     "last_reviewed": "2026-04-26"
   },
   "livekit/agents": {
     "deploy_status": "beta",
-    "notes": "WebRTC-native framework for realtime voice and video agents with low latency",
+    "notes": "WebRTC-native voice agents",
     "last_reviewed": "2026-04-26"
   },
   "unclecode/crawl4ai": {
     "deploy_status": "beta",
-    "notes": "self-hosted alternative to Firecrawl; extracts LLM-ready markdown from HTML",
+    "notes": "self-hosted alternative to Firecrawl",
     "last_reviewed": "2026-04-26"
   },
   "docling-project/docling": {
     "deploy_status": "prod",
-    "notes": "PDF-to-Markdown with layout awareness; preserves tables & structure for RAG",
+    "notes": "default PDF parser for RAG",
     "last_reviewed": "2026-04-26"
   },
   "Unstructured-IO/unstructured": {
     "deploy_status": "beta",
-    "notes": "ETL for heterogeneous docs (PDF, DOCX, HTML) into LLM-ready JSON/Markdown",
+    "notes": "fallback for heterogeneous file mix",
     "last_reviewed": "2026-04-26"
   },
   "vibrantlabsai/ragas": {
     "deploy_status": "prod",
-    "notes": "default RAG eval; faithfulness, relevance, and retrieval metrics out of the box",
+    "notes": "default RAG eval",
     "last_reviewed": "2026-04-26"
   },
   "PrefectHQ/fastmcp": {
     "deploy_status": "prod",
-    "notes": "Pythonic MCP server builder; de facto standard for Python MCP implementations",
+    "notes": "default Python MCP server framework",
     "last_reviewed": "2026-04-26"
   },
   "OpenHands/OpenHands": {
     "deploy_status": "beta",
-    "notes": "autonomous coding agent; multi-step task planning and execution across files",
+    "notes": "longer-horizon autonomous coding",
     "last_reviewed": "2026-04-26"
   },
   "firecrawl/firecrawl": {
     "deploy_status": "prod",
-    "notes": "web\u2192markdown API for RAG; handles JS rendering and pagination",
+    "notes": "default web\u2192markdown for RAG",
     "last_reviewed": "2026-04-26"
   },
   "langchain-ai/langchain": {
     "deploy_status": "beta",
-    "notes": "ecosystem play; broad integrations but superseded by LangGraph for stateful agents",
+    "notes": "predates LangGraph; broad ecosystem with mixed cohesion",
     "last_reviewed": "2026-04-26"
   },
   "langgenius/dify": {
     "deploy_status": "beta",
-    "notes": "visual workflow builder + UI; self-host your demo or internal tool",
+    "notes": "agentic workflow platform with self-host UI",
     "last_reviewed": "2026-04-26"
   },
   "agno-agi/agno": {
     "deploy_status": "beta",
-    "notes": "formerly Phidata; multi-modal agent framework with scale and lifecycle tooling",
+    "notes": "formerly Phidata; multi-modal agent framework",
     "last_reviewed": "2026-04-26"
   },
   "FlowiseAI/Flowise": {
     "deploy_status": "beta",
-    "notes": "visual drag-and-drop builder; demos and internal tools without code",
+    "notes": "visual / drag-and-drop agent builder",
     "last_reviewed": "2026-04-26"
   },
   "microsoft/graphrag": {
     "deploy_status": "beta",
-    "notes": "graph-based RAG; better on multi-hop synthesis vs. similarity retrieval",
+    "notes": "graph-based RAG from Microsoft Research",
     "last_reviewed": "2026-04-26"
   },
   "google-gemini/gemini-cli": {
     "deploy_status": "beta",
-    "notes": "official Google terminal interface; Gemini models without web UI or API keys",
+    "notes": "Google's official CLI agent for Gemini",
     "last_reviewed": "2026-04-26"
   },
   "daytonaio/daytona": {
     "deploy_status": "beta",
-    "notes": "secure, ephemeral sandboxes for executing AI-generated code",
+    "notes": "Daytona provides secure, elastic infrastructure for executing AI-generated code\u2014",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -263,7 +263,7 @@
   },
   "thedotmack/claude-mem": {
     "deploy_status": "beta",
-    "notes": "auto-captures + compresses Claude Code sessions; injects context into future chats",
+    "notes": "A Claude Code plugin that automatically captures coding sessions, compresses the",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -277,7 +277,7 @@
   },
   "bytedance/deer-flow": {
     "deploy_status": "beta",
-    "notes": "long-horizon tasks (hours); sandboxes, memory, subagents for research/coding pipelines",
+    "notes": "ByteDance's deer-flow is a long-horizon SuperAgent with 63K+ stars focused on re",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -288,7 +288,7 @@
   },
   "Mintplex-Labs/anything-llm": {
     "deploy_status": "beta",
-    "notes": "privacy-first all-in-one; on-device RAG with minimal setup",
+    "notes": "AnythingLLM is a distinctive all-in-one RAG platform emphasizing privacy-first,",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -299,7 +299,7 @@
   },
   "aaif-goose/goose": {
     "deploy_status": "beta",
-    "notes": "terminal agent that installs deps, runs commands, and edits \u2014 full toolchain access",
+    "notes": "Goose is a Rust-based code agent with 43K stars that installs, executes, edits,",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -314,7 +314,7 @@
   },
   "ChromeDevTools/chrome-devtools-mcp": {
     "deploy_status": "beta",
-    "notes": "MCP server exposing Chrome DevTools to agents for browser automation & inspection",
+    "notes": "A distinctive MCP server exposing Chrome DevTools functionality to coding agents",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -325,7 +325,7 @@
   },
   "HKUDS/LightRAG": {
     "deploy_status": "beta",
-    "notes": "graph-based indexing with dual-level retrieval; speed-optimized EMNLP alternative",
+    "notes": "LightRAG is a peer-reviewed (EMNLP 2025) RAG implementation emphasizing simplici",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -339,7 +339,7 @@
   },
   "khoj-ai/khoj": {
     "deploy_status": "beta",
-    "notes": "self-hostable personal AI with RAG over docs, web, and scheduled automations",
+    "notes": "Khoj is a self-hostable AI assistant for personal knowledge management with RAG",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -350,7 +350,7 @@
   },
   "bytedance/UI-TARS-desktop": {
     "deploy_status": "beta",
-    "notes": "multimodal agent stack; connects vision models to desktop automation infra",
+    "notes": "UI-TARS is a multimodal AI agent stack from ByteDance connecting AI models with",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -361,7 +361,7 @@
   },
   "lightpanda-io/browser": {
     "deploy_status": "beta",
-    "notes": "Zig-native headless browser; low-overhead runtime for AI-driven automation",
+    "notes": "Lightpanda is a purpose-built headless browser in Zig, explicitly designed for A",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -372,7 +372,7 @@
   },
   "github/github-mcp-server": {
     "deploy_status": "beta",
-    "notes": "GitHub's official MCP server; first-party integration for repos, issues, PRs",
+    "notes": "GitHub's official MCP server provides first-party integration between GitHub and",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -383,7 +383,7 @@
   },
   "ComposioHQ/composio": {
     "deploy_status": "beta",
-    "notes": "1000+ authenticated API connectors; breadth over depth for multi-tool agents",
+    "notes": "Composio is a tool integration platform offering 1000+ pre-built connectors, aut",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -397,7 +397,7 @@
   },
   "assafelovic/gpt-researcher": {
     "deploy_status": "beta",
-    "notes": "autonomous research agent; scrapes web sources, synthesizes multi-doc reports",
+    "notes": "GPT Researcher is an autonomous agent specialized for deep research workflows: m",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -408,7 +408,7 @@
   },
   "VectifyAI/PageIndex": {
     "deploy_status": "beta",
-    "notes": "vectorless RAG using LLM reasoning instead of embeddings for document retrieval",
+    "notes": "PageIndex presents a distinctive \"vectorless\" RAG approach using reasoning-based",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -419,7 +419,7 @@
   },
   "mlflow/mlflow": {
     "deploy_status": "beta",
-    "notes": "experiment tracking & model registry; mature end-to-end MLOps platform",
+    "notes": "MLflow is a mature, widely-adopted platform for experiment tracking, evaluation,",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -433,7 +433,7 @@
   },
   "agentscope-ai/agentscope": {
     "deploy_status": "beta",
-    "notes": "Alibaba's multi-agent framework emphasizing observability and trust primitives",
+    "notes": "AgentScope is a multi-agent framework from Alibaba emphasizing observability and",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -448,7 +448,7 @@
   },
   "oraios/serena": {
     "deploy_status": "beta",
-    "notes": "MCP server for semantic code search and edit; IDE-like capabilities for agents",
+    "notes": "A specialized MCP toolkit for coding with semantic retrieval and editing\u2014positio",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -462,7 +462,7 @@
   },
   "Skyvern-AI/skyvern": {
     "deploy_status": "beta",
-    "notes": "vision-model\u2013based browser automation; no brittle selectors, adapts to DOM changes",
+    "notes": "Skyvern uses AI vision models to automate browser workflows, distinct from brows",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -476,7 +476,7 @@
   },
   "comet-ml/opik": {
     "deploy_status": "beta",
-    "notes": "end-to-end tracing + automated evals in one platform; dev-to-prod workflow",
+    "notes": "Opik is a comprehensive LLM observability platform with tracing, automated evalu",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -490,7 +490,7 @@
   },
   "alibaba/page-agent": {
     "deploy_status": "beta",
-    "notes": "in-page JS agent; runs inside the DOM for GUI control vs. external CDP",
+    "notes": "Page-agent offers a distinctive in-page JavaScript approach to browser automatio",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -504,7 +504,7 @@
   },
   "RightNow-AI/openfang": {
     "deploy_status": "beta",
-    "notes": "Rust-based agent OS; systems-level primitives for agent orchestration",
+    "notes": "OpenFang is an \"Agent Operating System\" built in Rust, offering systems-level ag",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -515,7 +515,7 @@
   },
   "topoteretes/cognee": {
     "deploy_status": "beta",
-    "notes": "knowledge graph engine; 6-line API for persistent agent memory",
+    "notes": "Cognee is a knowledge engine for AI agent memory with 16.7k stars and active dev",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -529,7 +529,7 @@
   },
   "raga-ai-hub/RagaAI-Catalyst": {
     "deploy_status": "beta",
-    "notes": "self-hosted dashboard with execution graph & timeline views for multi-agent debugging",
+    "notes": "Python SDK for agent observability with tracing, multi-agent debugging, and self",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -543,7 +543,7 @@
   },
   "HKUDS/DeepCode": {
     "deploy_status": "beta",
-    "notes": "agentic coding for Paper2Code, Text2Web, and Text2Backend workflows",
+    "notes": "DeepCode offers distinctive agentic coding capabilities: Paper2Code, Text2Web, a",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -554,7 +554,7 @@
   },
   "memvid/memvid": {
     "deploy_status": "beta",
-    "notes": "single-file serverless memory; replaces multi-component RAG stacks with one layer",
+    "notes": "Memvid is a serverless, single-file memory layer for AI agents that simplifies r",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -568,7 +568,7 @@
   },
   "triggerdotdev/trigger.dev": {
     "deploy_status": "beta",
-    "notes": "fully-managed serverless runtime; deploy long-running agents without infra setup",
+    "notes": "Trigger.dev is a fully-managed platform for building and deploying AI agents and",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -582,7 +582,7 @@
   },
   "dottxt-ai/outlines": {
     "deploy_status": "beta",
-    "notes": "Constrained decoding for JSON, regex, and grammar-compliant LLM outputs",
+    "notes": "Outlines (13.7k stars) provides structured text generation, constraining LLM out",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -593,7 +593,7 @@
   },
   "yusufkaraaslan/Skill_Seekers": {
     "deploy_status": "beta",
-    "notes": "converts docs, repos, and PDFs into Claude MCP skills with conflict detection",
+    "notes": "Distinctive MCP server builder that converts docs, GitHub repos, and PDFs into C",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -607,7 +607,7 @@
   },
   "neuml/txtai": {
     "deploy_status": "beta",
-    "notes": "semantic search + RAG + LLM orchestration in one Python package; batteries-included",
+    "notes": "txtai is an established all-in-one framework for semantic search and RAG workflo",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -621,7 +621,7 @@
   },
   "bentoml/OpenLLM": {
     "deploy_status": "beta",
-    "notes": "OpenAI-compatible endpoints for open-source LLMs; cloud-native deployment focus",
+    "notes": "OpenLLM deploys open-source LLMs as OpenAI-compatible API endpoints with cloud-f",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -635,7 +635,7 @@
   },
   "langchain4j/langchain4j": {
     "deploy_status": "beta",
-    "notes": "idiomatic Java/JVM library; Quarkus & Spring Boot integration out of the box",
+    "notes": "LangChain4j is the canonical Java/JVM port of LangChain, offering unified APIs f",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -646,7 +646,7 @@
   },
   "Portkey-AI/gateway": {
     "deploy_status": "beta",
-    "notes": "unified routing + guardrails; single API for models and safety policies",
+    "notes": "Portkey Gateway combines model routing (200+ LLMs) with integrated guardrails (5",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -659,7 +659,7 @@
   },
   "microsoft/promptflow": {
     "deploy_status": "beta",
-    "notes": "integrated eval and observability from dev to prod; team workflows built in",
+    "notes": "Microsoft's framework for building LLM apps with integrated prototyping, testing",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -673,7 +673,7 @@
   },
   "yichuan-w/LEANN": {
     "deploy_status": "beta",
-    "notes": "on-device vector DB; 97% smaller indexes for private RAG on laptops and phones",
+    "notes": "LEANN is a research-backed vector database optimized for on-device RAG with 97%",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -690,7 +690,7 @@
   },
   "oramasearch/orama": {
     "deploy_status": "beta",
-    "notes": "sub-2kb vector search that runs in-browser or on the edge; full-text + hybrid",
+    "notes": "Orama is a sub-2kb vector database and search engine for browser, edge, and serv",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -701,7 +701,7 @@
   },
   "aden-hive/hive": {
     "deploy_status": "beta",
-    "notes": "production harness focused on multi-agent orchestration and operational readiness",
+    "notes": "Hive is a \"Multi-Agent Harness for Production AI\" with 10K+ stars and active mai",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -712,7 +712,7 @@
   },
   "lancedb/lancedb": {
     "deploy_status": "beta",
-    "notes": "embedded vector store; on-disk format scales to huge datasets without infra",
+    "notes": "LanceDB is a distinctive embedded vector database optimized for multimodal AI re",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -725,7 +725,7 @@
   },
   "mcp-use/mcp-use": {
     "deploy_status": "beta",
-    "notes": "fullstack MCP SDK: server + client components for both agents and chat UIs",
+    "notes": "Fullstack MCP framework for developing both MCP apps (ChatGPT/Claude integration",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -739,7 +739,7 @@
   },
   "alibaba/zvec": {
     "deploy_status": "beta",
-    "notes": "embedded vector store; zero-deployment alternative to standalone vector servers",
+    "notes": "zvec is an in-process vector database from Alibaba, offering a distinct deployme",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -750,7 +750,7 @@
   },
   "zilliztech/claude-context": {
     "deploy_status": "beta",
-    "notes": "semantic code search MCP; full-repo context without token-window constraints",
+    "notes": "MCP server providing semantic code search for coding agents, making entire codeb",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -761,7 +761,7 @@
   },
   "activeloopai/deeplake": {
     "deploy_status": "beta",
-    "notes": "multimodal vector store; optimized for image/video alongside text embeddings",
+    "notes": "Deep Lake is a multimodal vector database for AI agents emphasizing images, vide",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -776,7 +776,7 @@
   },
   "pinchtab/pinchtab": {
     "deploy_status": "beta",
-    "notes": "Go-based multi-instance orchestrator with stealth injection & live dashboard",
+    "notes": "High-performance Go-based browser automation bridge with multi-instance orchestr",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -787,7 +787,7 @@
   },
   "evidentlyai/evidently": {
     "deploy_status": "beta",
-    "notes": "ML & LLM observability; 100+ metrics for tabular, GenAI, and data pipelines",
+    "notes": "Evidently is an established ML/LLM observability framework with 7400+ stars.",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -801,7 +801,7 @@
   },
   "lsdefine/GenericAgent": {
     "deploy_status": "beta",
-    "notes": "Self-evolving agent that grows a skill tree from a compact seed; 6\u00d7 token efficiency",
+    "notes": "Self-evolving agent framework with skill-tree architecture, growing from 3.3K-li",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -812,7 +812,7 @@
   },
   "0xPlaygrounds/rig": {
     "deploy_status": "beta",
-    "notes": "Rust-native; type-safe agent primitives with zero-copy streaming",
+    "notes": "Rig is a Rust-native LLM application framework for modular, scalable agentic sys",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -823,7 +823,7 @@
   },
   "traceloop/openllmetry": {
     "deploy_status": "beta",
-    "notes": "OpenTelemetry-native LLM traces; fits existing OTel collectors and pipelines",
+    "notes": "OpenLLMetry provides OpenTelemetry-native observability for LLM applications wit",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -837,7 +837,7 @@
   },
   "steel-dev/steel-browser": {
     "deploy_status": "beta",
-    "notes": "managed browser sandbox API; offload infrastructure for agent web automation",
+    "notes": "Steel Browser is a batteries-included browser automation sandbox for AI agents,",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -851,7 +851,7 @@
   },
   "grab/cursor-talk-to-figma-mcp": {
     "deploy_status": "beta",
-    "notes": "MCP server bridging AI agents to Figma's API for design read/write",
+    "notes": "TalkToFigma is a concrete MCP server bridging AI agents with Figma's API for pro",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -865,7 +865,7 @@
   },
   "katanemo/plano": {
     "deploy_status": "beta",
-    "notes": "proxy + data plane for agents; orchestration, safety & routing in one layer",
+    "notes": "Plano is an AI-native proxy and data plane for agentic apps, combining smart LLM",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -878,7 +878,7 @@
   },
   "mishushakov/llm-scraper": {
     "deploy_status": "beta",
-    "notes": "LLM-driven web scraper; schema-out extraction without CSS selectors or XPath",
+    "notes": "Converts webpages into structured data using LLMs with browser automation.",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -892,7 +892,7 @@
   },
   "Helicone/helicone": {
     "deploy_status": "beta",
-    "notes": "one-line proxy integration; logs, evals, and experiments via URL swap",
+    "notes": "Helicone is a YC-backed LLM observability platform offering monitoring, evaluati",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -906,7 +906,7 @@
   },
   "getsentry/XcodeBuildMCP": {
     "deploy_status": "beta",
-    "notes": "MCP server for Xcode projects; build, test, and inspect iOS/macOS codebases",
+    "notes": "XcodeBuildMCP is a concrete MCP server for iOS/macOS development\u2014building, testi",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -917,7 +917,7 @@
   },
   "TencentCloudADP/youtu-agent": {
     "deploy_status": "beta",
-    "notes": "optimized for open-source models; simpler than LangGraph, Tencent-backed",
+    "notes": "Youtu-agent from Tencent Cloud emphasizes compatibility with open-source models,",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -928,7 +928,7 @@
   },
   "the-open-agent/openagent": {
     "deploy_status": "beta",
-    "notes": "Enterprise MCP/A2A management with admin UI, SSO, and multi-tenant user controls",
+    "notes": "Enterprise MCP management platform with admin UI, SSO, and user management.",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -942,7 +942,7 @@
   },
   "maximhq/bifrost": {
     "deploy_status": "beta",
-    "notes": "50x faster than LiteLLM; <100\u00b5s overhead with adaptive load balancing at scale",
+    "notes": "Enterprise AI gateway with adaptive load balancing, cluster mode, and guardrails",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -955,7 +955,7 @@
   },
   "gptme/gptme": {
     "deploy_status": "beta",
-    "notes": "terminal-based code agent; local tools, persistent sessions, easy to extend",
+    "notes": "gptme is a terminal-based code agent with local tool integration (code, terminal",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -970,7 +970,7 @@
   },
   "pydantic/logfire": {
     "deploy_status": "beta",
-    "notes": "Pydantic-native observability; auto-instruments models + agents with type-aware traces",
+    "notes": "Pydantic Logfire is a production AI observability platform from the Pydantic tea",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -984,7 +984,7 @@
   },
   "langroid/langroid": {
     "deploy_status": "beta",
-    "notes": "multi-agent programming; message-oriented actors with tool-use built in",
+    "notes": "Langroid is a multi-agent framework with 4k stars, MIT license, and active devel",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -995,7 +995,7 @@
   },
   "evalstate/fast-agent": {
     "deploy_status": "beta",
-    "notes": "agent builder + evals in one; strong MCP/ACP skill integration",
+    "notes": "fast-agent combines agent building and evaluation with strong MCP/skills integra",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -1010,7 +1010,7 @@
   },
   "IBM/mcp-context-forge": {
     "deploy_status": "beta",
-    "notes": "Gateway that unifies MCP, A2A, REST/gRPC behind one endpoint; discovery + guardrails",
+    "notes": "An AI gateway/proxy that unifies MCP, A2A, and REST/gRPC APIs behind a single en",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -1024,7 +1024,7 @@
   },
   "jo-inc/camofox-browser": {
     "deploy_status": "beta",
-    "notes": "drop-in Puppeteer/Playwright replacement optimized to bypass bot detection",
+    "notes": "Stealth browser designed for AI agents with anti-detection capabilities (Cloudfl",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -1035,7 +1035,7 @@
   },
   "lmnr-ai/lmnr": {
     "deploy_status": "beta",
-    "notes": "purpose-built for multi-step agent traces; not just single LLM call logging",
+    "notes": "Laminar is purpose-built observability for AI agents, not just general LLM traci",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -1049,7 +1049,7 @@
   },
   "blazickjp/arxiv-mcp-server": {
     "deploy_status": "beta",
-    "notes": "MCP server for arXiv paper search and analysis",
+    "notes": "A concrete MCP server for arXiv paper search and analysis.",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -1060,7 +1060,7 @@
   },
   "metatool-ai/metamcp": {
     "deploy_status": "beta",
-    "notes": "Proxy layer for multiplexing MCP servers; single endpoint for many tools",
+    "notes": "MetaMCP provides MCP aggregation, orchestration, and gateway infrastructure in a",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -1074,7 +1074,7 @@
   },
   "taylorwilsdon/google_workspace_mcp": {
     "deploy_status": "beta",
-    "notes": "MCP server exposing Gmail, Calendar, Docs, Sheets, Slides & Drive APIs",
+    "notes": "Comprehensive MCP server exposing Google Workspace APIs (Gmail, Calendar, Docs,",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -1085,7 +1085,7 @@
   },
   "msoedov/agentic_security": {
     "deploy_status": "beta",
-    "notes": "agentic-focused LLM vulnerability scanner; red-team probe kit for AI systems",
+    "notes": "Agentic_security is a focused LLM vulnerability scanner and AI red-teaming toolk",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,
@@ -1099,7 +1099,7 @@
   },
   "traceroot-ai/traceroot": {
     "deploy_status": "beta",
-    "notes": "observability with self-healing hooks; auto-corrects failing agent workflows",
+    "notes": "TraceRoot is an observability tool for AI agents with a distinctive \"self-healin",
     "last_reviewed": "2026-04-26",
     "triage": {
       "auto": true,

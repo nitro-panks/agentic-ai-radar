@@ -5,6 +5,7 @@ tools:
   - { name: "Ollama",    repo: "ollama/ollama" }
   - { name: "llama.cpp", repo: "ggml-org/llama.cpp" }
   - { name: "SGLang",    repo: "sgl-project/sglang" }
+  - { name: "OpenLLM", repo: "bentoml/OpenLLM" }
 last_reviewed: 2026-04-26
 ---
 
@@ -106,3 +107,22 @@ Competes with vLLM and TGI on serving; often outperforms on prefix-heavy workloa
 #### Sources
 - Repo: https://github.com/sgl-project/sglang
 <!-- END TOOL: sgl-project/sglang -->
+
+<!-- BEGIN TOOL: bentoml/OpenLLM -->
+### OpenLLM
+<!-- repo: bentoml/OpenLLM -->
+
+#### What it is
+BentoML's wrapper around open-source model serving — `pip install openllm`, then a single `openllm serve <model>` exposes an OpenAI-compatible API with a built-in chat UI. Hands off to Docker / Kubernetes / BentoCloud for production deployment.
+
+#### When to reach for it
+- You already operate a BentoML stack, or you want a single-command path from "pick a model" to "OpenAI-compatible endpoint with a chat UI" without composing vLLM and a serving framework yourself.
+- You need easy deployment to BentoCloud as the eventual target — OpenLLM is the natural on-ramp.
+
+#### When not to
+- Maximum throughput / lowest latency production serving — vLLM is the right shape and you'll want its lower-level controls; OpenLLM trades performance ceiling for ops simplicity.
+- Local laptop development with a tight feedback loop — Ollama is faster to spin up and discard.
+
+#### Sources
+- Repo: https://github.com/bentoml/OpenLLM
+<!-- END TOOL: bentoml/OpenLLM -->

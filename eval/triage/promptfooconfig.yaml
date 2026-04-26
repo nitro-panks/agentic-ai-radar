@@ -1,0 +1,59 @@
+# promptfoo eval — triage scorer regression gate
+#
+# Per case:
+#   - vars.candidate is rendered as a one-line JSON prompt.
+#   - The prompt is piped to `triage_score.py --single-candidate` (the live
+#     production scorer), which emits one TriageDecision JSON to stdout.
+#   - Assertions check schema + decision regression on high-confidence cases.
+#
+# Usage:
+#   cd eval/triage && promptfoo eval
+#
+# Install: `npm i -g promptfoo`. Anthropic creds via $ANTHROPIC_API_KEY in env.
+
+description: "ai-radar triage scorer regression suite"
+
+prompts:
+  - "{{ candidate | dump }}"
+
+providers:
+  - id: "exec:./run_one.sh"
+    label: "triage_score.py (Haiku→Sonnet hybrid + auto-skip)"
+
+tests: file://cases.jsonl
+
+defaultTest:
+  assert:
+    # 1. Schema check — must be a valid TriageDecision JSON.
+    - type: is-json
+      value:
+        type: object
+        required: [repo, decision, confidence, reason, tier]
+        properties:
+          decision: { enum: [add, defer, skip] }
+          tier: { enum: [auto, haiku, "haiku→sonnet"] }
+          confidence: { type: number, minimum: 0, maximum: 1 }
+
+    # 2. Decision regression — strict gate when expected_confidence ≥ 0.85.
+    #    Lower-confidence cases are exempt (they're boundary cases the past
+    #    system itself flagged with low confidence; flips are expected).
+    - type: javascript
+      value: |
+        const out = JSON.parse(output);
+        if (context.vars.expected_confidence < 0.85) return true;
+        return out.decision === context.vars.expected_decision;
+
+    # 3. Category validity — when decision==add, proposed_category must be one
+    #    of the 15 known categories.
+    - type: javascript
+      value: |
+        const VALID = new Set([
+          "agent-frameworks","model-hosting","model-routing","rag-and-retrieval",
+          "vector-stores","evaluation","observability","tool-use-and-mcp",
+          "browser-and-computer-use","code-agents","security",
+          "orchestration-and-runtime","memory","voice-and-multimodal",
+          "data-and-extraction",
+        ]);
+        const out = JSON.parse(output);
+        if (out.decision !== "add") return true;
+        return VALID.has(out.proposed_category);

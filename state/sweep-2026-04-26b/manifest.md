@@ -1,4 +1,63 @@
-# Sweep 2026-04-26b (continuation — `gh` token now available)
+# Sweep 2026-04-26b (continuation — `gh` token + Instructor scoring)
+
+## Instructor-backed triage (RUNBOOK §7.11)
+
+**Run after the manual 6-add round below.** Implemented per user feedback (memory: "Use Instructor for triage scoring"). All 164 candidates from `01-inbox.jsonl` re-scored with `claude-sonnet-4-5` via the `instructor` library, structured output as a Pydantic `TriageDecision` (decision / confidence / proposed_category / proposed_deploy_status / redundancy_with / reason). 8 worker threads, prompt caching on the system prompt + tracked-tools list, ~38s wall time, 0 errors.
+
+| Decision | Count |
+|---|---:|
+| add | 67 |
+| defer | 28 |
+| skip | 69 |
+
+Outputs: `04-triage-scored.jsonl` (full structured decisions), `05-actions.jsonl` (apply log).
+
+**Adds applied per category:**
+
+| Category | New blocks |
+|---|---:|
+| agent-frameworks | 14 |
+| tool-use-and-mcp | 14 |
+| observability | 9 |
+| browser-and-computer-use | 6 |
+| rag-and-retrieval | 5 |
+| vector-stores | 5 |
+| memory | 3 |
+| code-agents | 3 |
+| model-routing | 3 |
+| orchestration-and-runtime | 2 |
+| data-and-extraction | 1 |
+| model-hosting | 1 |
+| security | 1 |
+
+Each add was written as a sentinel-wrapped stub block on the right category page with:
+- `What it is` — paraphrase of the upstream description.
+- `When to reach for it` / `When not to` — `_TODO — needs human review (auto-triaged stub)._`
+- `Triage notes` — model, confidence, and reason — provenance is explicit so a reader can see this is auto-generated.
+- Real metrics (stars/forks/watchers/contributors) fetched via `gh api repos/{r}` and `repos/{r}/contributors?per_page=1`.
+
+Defaulted `deploy_status: beta` for new adds unless the model proposed otherwise. Notes shortened to first sentence of the model's reason (≤80 chars) for the `landscape-meta.json` overlay.
+
+**After this stage:**
+- Tracked tools: **49 → 116**
+- `landscape.md`: 116 rows, 0 untriaged
+- `viz/data.json` + `viz/data-2026-04-26b.json` archive regenerated
+- `metrics-history.jsonl`: 116 rows under `sweep: 2026-04-26b` (replaced the prior 49-row partial for this sweep id per the same-sweep dedupe rule in RUNBOOK §14)
+
+**Notable adds:**
+- Observability: `pydantic/logfire`, `comet-ml/opik`, `mlflow/mlflow`, `lmnr-ai/lmnr` (Laminar)
+- Browser/computer-use: `Skyvern-AI/skyvern`, `lightpanda-io/browser`, `bytedance/UI-TARS-desktop`
+- Memory: `topoteretes/cognee`, `memvid/memvid`
+- Tool-use & MCP: `github/github-mcp-server`, `ChromeDevTools/chrome-devtools-mcp`, `ComposioHQ/composio`, `oraios/serena`, `IBM/mcp-context-forge`, `metatool-ai/metamcp`
+- Agent frameworks: `bytedance/deer-flow`, `Mintplex-Labs/anything-llm`, `langroid/langroid`, `assafelovic/gpt-researcher`, `agentscope-ai/agentscope`
+- RAG: `HKUDS/LightRAG`, `khoj-ai/khoj`
+- Orchestration: `daytonaio/daytona` (sandbox infra — promote sub-shape next sweep)
+
+**Defers (28)** — kept in `04-triage-scored.jsonl`; common patterns: novel sub-shapes (git-native agent protocols, RL bridges), brand-new high-momentum repos, multi-faceted LLMOps platforms.
+
+**Skips (69)** — common patterns from the model's reasons: educational/awesome-list repos, single-purpose MCP wrappers around commercial APIs, marketing-named star-farms, off-topic high-star projects.
+
+---
 
 ## Stages
 - [x] init-sweep

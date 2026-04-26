@@ -12,6 +12,16 @@ A markdown-based knowledge base of agentic AI tooling. No code, no build, no tes
 
 `landscape.md` and `viz/data.json` are generated artifacts that combine all three layers.
 
+## Publish path
+
+The public face of the treemap lives at **https://oturu.online/agentic-ai-landscape** (served from the `oturu` repo at `~/code/oturu`). When the user says **"update the treemap on oturu"**, that means run the full publish flow:
+
+1. Run `viz:treemap` here so `viz/data.json` is fresh (see `RUNBOOK.md` §7.17).
+2. Copy: `cp viz/data.json ~/code/oturu/app/static/data/agentic-ai-radar.json`.
+3. In `~/code/oturu`: `python -m app.cli deploy` (rsyncs `app/` + DB to the prod droplet, restarts the service).
+
+The oturu-side page (`app/templates/agentic_ai_landscape.html`) is hand-maintained — only the JSON moves between repos.
+
 ## Layout invariants
 
 - One markdown file per category in `categories/`. There is no `tools/` directory.

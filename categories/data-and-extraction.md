@@ -5,6 +5,7 @@ tools:
   - { name: "Crawl4AI",     repo: "unclecode/crawl4ai" }
   - { name: "Docling",      repo: "docling-project/docling" }
   - { name: "Unstructured", repo: "Unstructured-IO/unstructured" }
+  - { name: "llm-scraper", repo: "mishushakov/llm-scraper" }
 last_reviewed: 2026-04-26
 ---
 
@@ -88,3 +89,22 @@ Library for parsing many file types into normalized elements for LLM/RAG pipelin
 #### Sources
 - Repo: https://github.com/Unstructured-IO/unstructured
 <!-- END TOOL: Unstructured-IO/unstructured -->
+
+<!-- BEGIN TOOL: mishushakov/llm-scraper -->
+### llm-scraper
+<!-- repo: mishushakov/llm-scraper -->
+
+#### What it is
+TypeScript library that combines Playwright with an LLM to extract Zod-schema-typed structured data from any webpage. Supports HTML / raw HTML / markdown / text / image input modes and works against the major model families via the Vercel AI SDK.
+
+#### When to reach for it
+- TypeScript pipeline that needs schema-validated structured extraction from a real, possibly JS-rendered webpage — not just clean markdown.
+- You want type-safety on the extracted shape (Zod) and full control over which model performs the extraction step.
+
+#### When not to
+- You just need clean markdown of a page for downstream RAG — Firecrawl is the right shape and doesn't bind you to the TS / Playwright stack.
+- Self-hosted, scaled crawling — Crawl4AI fits that better; llm-scraper is a per-page extraction tool, not a crawler.
+
+#### Sources
+- Repo: https://github.com/mishushakov/llm-scraper
+<!-- END TOOL: mishushakov/llm-scraper -->

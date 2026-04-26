@@ -1,6 +1,6 @@
 {
-  "name": "ai-radar",
-  "generated_at": "2026-04-26T17:33:28Z",
+  "name": "agentic-ai-radar",
+  "generated_at": "2026-04-26T16:32:53Z",
   "children": [
     {
       "name": "agent-frameworks",
@@ -20,7 +20,7 @@
           "pushed_at": "2026-04-26",
           "license": "NOASSERTION",
           "language": "TypeScript",
-          "notes": "visual workflow builder + UI; self-host your demo or internal tool"
+          "notes": "agentic workflow platform with self-host UI"
         },
         {
           "name": "LangChain",
@@ -37,7 +37,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "Python",
-          "notes": "ecosystem play; broad integrations but superseded by LangGraph for stateful agents"
+          "notes": "predates LangGraph; broad ecosystem with mixed cohesion"
         },
         {
           "name": "deer-flow",
@@ -54,7 +54,7 @@
           "pushed_at": "2026-04-26",
           "license": "MIT",
           "language": "Python",
-          "notes": "long-horizon tasks (hours); sandboxes, memory, subagents for research/coding pipelines"
+          "notes": "ByteDance's deer-flow is a long-horizon SuperAgent with 63K+ stars focused on re"
         },
         {
           "name": "AutoGen",
@@ -71,7 +71,7 @@
           "pushed_at": "2026-04-15",
           "license": "CC-BY-4.0",
           "language": "Python",
-          "notes": "multi-agent conversation loops; agents as actors with message-passing"
+          "notes": "v0.4 split \u2014 re-evaluate after 0.5"
         },
         {
           "name": "Flowise",
@@ -88,7 +88,7 @@
           "pushed_at": "2026-04-24",
           "license": "NOASSERTION",
           "language": "TypeScript",
-          "notes": "visual drag-and-drop builder; demos and internal tools without code"
+          "notes": "visual / drag-and-drop agent builder"
         },
         {
           "name": "CrewAI",
@@ -105,7 +105,7 @@
           "pushed_at": "2026-04-26",
           "license": "MIT",
           "language": "Python",
-          "notes": "role-playing agents with hierarchical task delegation; crew abstraction"
+          "notes": "good when role/crew is the natural abstraction"
         },
         {
           "name": "Agno",
@@ -122,7 +122,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "formerly Phidata; multi-modal agent framework with scale and lifecycle tooling"
+          "notes": "formerly Phidata; multi-modal agent framework"
         },
         {
           "name": "LangGraph",
@@ -139,7 +139,7 @@
           "pushed_at": "2026-04-26",
           "license": "MIT",
           "language": "Python",
-          "notes": "default for stateful agent flows; checkpoints + HITL primitives"
+          "notes": "default for stateful agent flows"
         },
         {
           "name": "UI-TARS-desktop",
@@ -156,7 +156,7 @@
           "pushed_at": "2026-03-27",
           "license": "Apache-2.0",
           "language": "TypeScript",
-          "notes": "multimodal agent stack; connects vision models to desktop automation infra"
+          "notes": "UI-TARS is a multimodal AI agent stack from ByteDance connecting AI models with"
         },
         {
           "name": "smolagents",
@@ -173,7 +173,7 @@
           "pushed_at": "2026-04-24",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "barebones code-execution agent primitives; bring your own sandbox"
+          "notes": "code-execution agents; needs sandbox discipline"
         },
         {
           "name": "gpt-researcher",
@@ -190,7 +190,7 @@
           "pushed_at": "2026-04-16",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "autonomous research agent; scrapes web sources, synthesizes multi-doc reports"
+          "notes": "GPT Researcher is an autonomous agent specialized for deep research workflows: m"
         },
         {
           "name": "agentscope",
@@ -207,7 +207,7 @@
           "pushed_at": "2026-04-22",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "Alibaba's multi-agent framework emphasizing observability and trust primitives"
+          "notes": "AgentScope is a multi-agent framework from Alibaba emphasizing observability and"
         },
         {
           "name": "openfang",
@@ -224,7 +224,7 @@
           "pushed_at": "2026-04-23",
           "license": "Apache-2.0",
           "language": "Rust",
-          "notes": "Rust-based agent OS; systems-level primitives for agent orchestration"
+          "notes": "OpenFang is an \"Agent Operating System\" built in Rust, offering systems-level ag"
         },
         {
           "name": "Pydantic AI",
@@ -241,7 +241,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "Python",
-          "notes": "strict typing & validation via Pydantic schemas; type-safe agent I/O"
+          "notes": "preferred when typing matters"
         },
         {
           "name": "outlines",
@@ -258,7 +258,7 @@
           "pushed_at": "2026-04-16",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "Constrained decoding for JSON, regex, and grammar-compliant LLM outputs"
+          "notes": "Outlines (13.7k stars) provides structured text generation, constraining LLM out"
         },
         {
           "name": "langchain4j",
@@ -275,7 +275,7 @@
           "pushed_at": "2026-04-24",
           "license": "Apache-2.0",
           "language": "Java",
-          "notes": "idiomatic Java/JVM library; Quarkus & Spring Boot integration out of the box"
+          "notes": "LangChain4j is the canonical Java/JVM port of LangChain, offering unified APIs f"
         },
         {
           "name": "promptflow",
@@ -292,7 +292,7 @@
           "pushed_at": "2026-04-24",
           "license": "MIT",
           "language": "Python",
-          "notes": "integrated eval and observability from dev to prod; team workflows built in"
+          "notes": "Microsoft's framework for building LLM apps with integrated prototyping, testing"
         },
         {
           "name": "hive",
@@ -309,7 +309,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "production harness focused on multi-agent orchestration and operational readiness"
+          "notes": "Hive is a \"Multi-Agent Harness for Production AI\" with 10K+ stars and active mai"
         },
         {
           "name": "GenericAgent",
@@ -326,7 +326,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "Python",
-          "notes": "Self-evolving agent that grows a skill tree from a compact seed; 6\u00d7 token efficiency"
+          "notes": "Self-evolving agent framework with skill-tree architecture, growing from 3.3K-li"
         },
         {
           "name": "rig",
@@ -343,7 +343,7 @@
           "pushed_at": "2026-04-24",
           "license": "MIT",
           "language": "Rust",
-          "notes": "Rust-native; type-safe agent primitives with zero-copy streaming"
+          "notes": "Rig is a Rust-native LLM application framework for modular, scalable agentic sys"
         },
         {
           "name": "youtu-agent",
@@ -360,7 +360,7 @@
           "pushed_at": "2026-03-21",
           "license": "NOASSERTION",
           "language": "Python",
-          "notes": "optimized for open-source models; simpler than LangGraph, Tencent-backed"
+          "notes": "Youtu-agent from Tencent Cloud emphasizes compatibility with open-source models,"
         },
         {
           "name": "langroid",
@@ -377,7 +377,7 @@
           "pushed_at": "2026-04-07",
           "license": "MIT",
           "language": "Python",
-          "notes": "multi-agent programming; message-oriented actors with tool-use built in"
+          "notes": "Langroid is a multi-agent framework with 4k stars, MIT license, and active devel"
         },
         {
           "name": "fast-agent",
@@ -394,7 +394,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "agent builder + evals in one; strong MCP/ACP skill integration"
+          "notes": "fast-agent combines agent building and evaluation with strong MCP/skills integra"
         }
       ]
     },
@@ -416,7 +416,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "Python",
-          "notes": "Python browser agent; ergonomic DOM access + multi-step navigation primitives"
+          "notes": "Python browser agent of choice"
         },
         {
           "name": "browser",
@@ -433,7 +433,7 @@
           "pushed_at": "2026-04-26",
           "license": "AGPL-3.0",
           "language": "Zig",
-          "notes": "Zig-native headless browser; low-overhead runtime for AI-driven automation"
+          "notes": "Lightpanda is a purpose-built headless browser in Zig, explicitly designed for A"
         },
         {
           "name": "Stagehand",
@@ -450,7 +450,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "TypeScript",
-          "notes": "TypeScript-first browser automation SDK with agent-friendly DOM abstractions"
+          "notes": "TS browser agent of choice"
         },
         {
           "name": "skyvern",
@@ -467,7 +467,7 @@
           "pushed_at": "2026-04-26",
           "license": "AGPL-3.0",
           "language": "Python",
-          "notes": "vision-model\u2013based browser automation; no brittle selectors, adapts to DOM changes"
+          "notes": "Skyvern uses AI vision models to automate browser workflows, distinct from brows"
         },
         {
           "name": "page-agent",
@@ -484,7 +484,7 @@
           "pushed_at": "2026-04-21",
           "license": "MIT",
           "language": "TypeScript",
-          "notes": "in-page JS agent; runs inside the DOM for GUI control vs. external CDP"
+          "notes": "Page-agent offers a distinctive in-page JavaScript approach to browser automatio"
         },
         {
           "name": "pinchtab",
@@ -501,7 +501,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "Go",
-          "notes": "Go-based multi-instance orchestrator with stealth injection & live dashboard"
+          "notes": "High-performance Go-based browser automation bridge with multi-instance orchestr"
         },
         {
           "name": "steel-browser",
@@ -518,7 +518,7 @@
           "pushed_at": "2026-04-24",
           "license": "Apache-2.0",
           "language": "TypeScript",
-          "notes": "managed browser sandbox API; offload infrastructure for agent web automation"
+          "notes": "Steel Browser is a batteries-included browser automation sandbox for AI agents,"
         },
         {
           "name": "camofox-browser",
@@ -535,7 +535,7 @@
           "pushed_at": "2026-04-26",
           "license": "MIT",
           "language": "JavaScript",
-          "notes": "drop-in Puppeteer/Playwright replacement optimized to bypass bot detection"
+          "notes": "Stealth browser designed for AI agents with anti-detection capabilities (Cloudfl"
         }
       ]
     },
@@ -557,7 +557,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "TypeScript",
-          "notes": "official Google terminal interface; Gemini models without web UI or API keys"
+          "notes": "Google's official CLI agent for Gemini"
         },
         {
           "name": "OpenHands",
@@ -574,7 +574,7 @@
           "pushed_at": "2026-04-25",
           "license": "NOASSERTION",
           "language": "Python",
-          "notes": "autonomous coding agent; multi-step task planning and execution across files"
+          "notes": "longer-horizon autonomous coding"
         },
         {
           "name": "Cline",
@@ -591,7 +591,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "TypeScript",
-          "notes": "VS Code extension; agentic pair-programmer with file, terminal & browser control"
+          "notes": "VS Code agent of choice"
         },
         {
           "name": "Aider",
@@ -608,7 +608,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "terminal pair-programmer; auto-commits each edit"
+          "notes": "terminal pair-programmer"
         },
         {
           "name": "goose",
@@ -625,7 +625,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Rust",
-          "notes": "terminal agent that installs deps, runs commands, and edits \u2014 full toolchain access"
+          "notes": "Goose is a Rust-based code agent with 43K stars that installs, executes, edits,"
         },
         {
           "name": "DeepCode",
@@ -642,7 +642,7 @@
           "pushed_at": "2026-04-21",
           "license": "MIT",
           "language": "Python",
-          "notes": "agentic coding for Paper2Code, Text2Web, and Text2Backend workflows"
+          "notes": "DeepCode offers distinctive agentic coding capabilities: Paper2Code, Text2Web, a"
         },
         {
           "name": "gptme",
@@ -659,7 +659,7 @@
           "pushed_at": "2026-04-26",
           "license": "MIT",
           "language": "Python",
-          "notes": "terminal-based code agent; local tools, persistent sessions, easy to extend"
+          "notes": "gptme is a terminal-based code agent with local tool integration (code, terminal"
         }
       ]
     },
@@ -681,7 +681,7 @@
           "pushed_at": "2026-04-26",
           "license": "AGPL-3.0",
           "language": "TypeScript",
-          "notes": "web\u2192markdown API for RAG; handles JS rendering and pagination"
+          "notes": "default web\u2192markdown for RAG"
         },
         {
           "name": "Crawl4AI",
@@ -698,7 +698,7 @@
           "pushed_at": "2026-04-24",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "self-hosted alternative to Firecrawl; extracts LLM-ready markdown from HTML"
+          "notes": "self-hosted alternative to Firecrawl"
         },
         {
           "name": "Docling",
@@ -715,7 +715,7 @@
           "pushed_at": "2026-04-24",
           "license": "MIT",
           "language": "Python",
-          "notes": "PDF-to-Markdown with layout awareness; preserves tables & structure for RAG"
+          "notes": "default PDF parser for RAG"
         },
         {
           "name": "Unstructured",
@@ -732,7 +732,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "HTML",
-          "notes": "ETL for heterogeneous docs (PDF, DOCX, HTML) into LLM-ready JSON/Markdown"
+          "notes": "fallback for heterogeneous file mix"
         },
         {
           "name": "llm-scraper",
@@ -749,7 +749,7 @@
           "pushed_at": "2026-04-13",
           "license": "MIT",
           "language": "TypeScript",
-          "notes": "LLM-driven web scraper; schema-out extraction without CSS selectors or XPath"
+          "notes": "Converts webpages into structured data using LLMs with browser automation."
         }
       ]
     },
@@ -771,7 +771,7 @@
           "pushed_at": "2026-04-26",
           "license": "MIT",
           "language": "TypeScript",
-          "notes": "declarative eval & red-team configs; CLI-first for CI/CD integration"
+          "notes": "default eval-as-code in CI"
         },
         {
           "name": "DeepEval",
@@ -788,7 +788,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "pytest-shaped LLM tests; native CI integration and familiar assertions"
+          "notes": "pytest-shaped LLM tests"
         },
         {
           "name": "Ragas",
@@ -805,7 +805,7 @@
           "pushed_at": "2026-02-24",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "default RAG eval; faithfulness, relevance, and retrieval metrics out of the box"
+          "notes": "default RAG eval"
         }
       ]
     },
@@ -827,7 +827,7 @@
           "pushed_at": "2026-04-26",
           "license": "NOASSERTION",
           "language": "TypeScript",
-          "notes": "auto-captures + compresses Claude Code sessions; injects context into future chats"
+          "notes": "A Claude Code plugin that automatically captures coding sessions, compresses the"
         },
         {
           "name": "Mem0",
@@ -844,7 +844,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "persistent memory layer for agents to recall facts across sessions and users"
+          "notes": "user-personalization memory"
         },
         {
           "name": "Letta",
@@ -861,7 +861,7 @@
           "pushed_at": "2026-04-12",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "stateful agents with persistent memory; learn and evolve across sessions"
+          "notes": "stateful agents server (ex-MemGPT)"
         },
         {
           "name": "cognee",
@@ -878,7 +878,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "knowledge graph engine; 6-line API for persistent agent memory"
+          "notes": "Cognee is a knowledge engine for AI agent memory with 16.7k stars and active dev"
         },
         {
           "name": "memvid",
@@ -895,7 +895,7 @@
           "pushed_at": "2026-03-16",
           "license": "Apache-2.0",
           "language": "Rust",
-          "notes": "single-file serverless memory; replaces multi-component RAG stacks with one layer"
+          "notes": "Memvid is a serverless, single-file memory layer for AI agents that simplifies r"
         },
         {
           "name": "SuperLocalMemory",
@@ -906,13 +906,13 @@
           "forks": 13,
           "watchers": 7,
           "open_issues": 6,
-          "contributors": 0,
+          "contributors": null,
           "stars_30d": null,
           "stars_90d": null,
           "pushed_at": "2026-04-25",
           "license": "AGPL-3.0",
           "language": "Python",
-          "notes": "local-only memory; strong retrieval without cloud APIs or model calls"
+          "notes": "local-only memory + MCP server; in-use for Claude Code sessions"
         }
       ]
     },
@@ -934,7 +934,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "Go",
-          "notes": "default for local model hosting; one-command setup, laptop-friendly inference"
+          "notes": "default for laptop/dev"
         },
         {
           "name": "llama.cpp",
@@ -951,7 +951,7 @@
           "pushed_at": "2026-04-26",
           "license": "MIT",
           "language": "C++",
-          "notes": "CPU-first inference; quantization for laptops and edge without GPU dependency"
+          "notes": "CPU/edge fallback"
         },
         {
           "name": "vLLM",
@@ -968,7 +968,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "high-throughput GPU serving with PagedAttention memory management"
+          "notes": "default GPU serving"
         },
         {
           "name": "SGLang",
@@ -985,7 +985,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "high-throughput serving optimized for prefix caching in agentic loops"
+          "notes": "great for prefix-cached agentic loops"
         },
         {
           "name": "OpenLLM",
@@ -1002,7 +1002,7 @@
           "pushed_at": "2026-04-20",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "OpenAI-compatible endpoints for open-source LLMs; cloud-native deployment focus"
+          "notes": "OpenLLM deploys open-source LLMs as OpenAI-compatible API endpoints with cloud-f"
         }
       ]
     },
@@ -1024,7 +1024,7 @@
           "pushed_at": "2026-04-26",
           "license": "NOASSERTION",
           "language": "Python",
-          "notes": "OpenAI-shaped proxy for 100+ providers; built-in cost tracking & load balancing"
+          "notes": "default routing/proxy"
         },
         {
           "name": "gateway",
@@ -1041,7 +1041,7 @@
           "pushed_at": "2026-03-25",
           "license": "MIT",
           "language": "TypeScript",
-          "notes": "unified routing + guardrails; single API for models and safety policies"
+          "notes": "Portkey Gateway combines model routing (200+ LLMs) with integrated guardrails (5"
         },
         {
           "name": "plano",
@@ -1058,7 +1058,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "Rust",
-          "notes": "proxy + data plane for agents; orchestration, safety & routing in one layer"
+          "notes": "Plano is an AI-native proxy and data plane for agentic apps, combining smart LLM"
         },
         {
           "name": "bifrost",
@@ -1075,7 +1075,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Go",
-          "notes": "50x faster than LiteLLM; <100\u00b5s overhead with adaptive load balancing at scale"
+          "notes": "Enterprise AI gateway with adaptive load balancing, cluster mode, and guardrails"
         }
       ]
     },
@@ -1097,7 +1097,7 @@
           "pushed_at": "2026-04-25",
           "license": "NOASSERTION",
           "language": "TypeScript",
-          "notes": "default self-hosted obs+evals; prompt management & datasets alongside traces"
+          "notes": "default self-hosted obs+evals"
         },
         {
           "name": "mlflow",
@@ -1114,7 +1114,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "experiment tracking & model registry; mature end-to-end MLOps platform"
+          "notes": "MLflow is a mature, widely-adopted platform for experiment tracking, evaluation,"
         },
         {
           "name": "opik",
@@ -1131,7 +1131,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "end-to-end tracing + automated evals in one platform; dev-to-prod workflow"
+          "notes": "Opik is a comprehensive LLM observability platform with tracing, automated evalu"
         },
         {
           "name": "RagaAI-Catalyst",
@@ -1148,7 +1148,7 @@
           "pushed_at": "2026-02-11",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "self-hosted dashboard with execution graph & timeline views for multi-agent debugging"
+          "notes": "Python SDK for agent observability with tracing, multi-agent debugging, and self"
         },
         {
           "name": "Phoenix (Arize)",
@@ -1165,7 +1165,7 @@
           "pushed_at": "2026-04-26",
           "license": "NOASSERTION",
           "language": "Python",
-          "notes": "OTel-native observability; spans for LLM traces + built-in evaluation"
+          "notes": "OTel-native alternative"
         },
         {
           "name": "evidently",
@@ -1182,7 +1182,7 @@
           "pushed_at": "2026-04-22",
           "license": "Apache-2.0",
           "language": "Jupyter Notebook",
-          "notes": "ML & LLM observability; 100+ metrics for tabular, GenAI, and data pipelines"
+          "notes": "Evidently is an established ML/LLM observability framework with 7400+ stars."
         },
         {
           "name": "openllmetry",
@@ -1199,7 +1199,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "OpenTelemetry-native LLM traces; fits existing OTel collectors and pipelines"
+          "notes": "OpenLLMetry provides OpenTelemetry-native observability for LLM applications wit"
         },
         {
           "name": "helicone",
@@ -1216,7 +1216,7 @@
           "pushed_at": "2026-04-23",
           "license": "Apache-2.0",
           "language": "TypeScript",
-          "notes": "one-line proxy integration; logs, evals, and experiments via URL swap"
+          "notes": "Helicone is a YC-backed LLM observability platform offering monitoring, evaluati"
         },
         {
           "name": "logfire",
@@ -1233,7 +1233,7 @@
           "pushed_at": "2026-04-23",
           "license": "MIT",
           "language": "Python",
-          "notes": "Pydantic-native observability; auto-instruments models + agents with type-aware traces"
+          "notes": "Pydantic Logfire is a production AI observability platform from the Pydantic tea"
         },
         {
           "name": "lmnr",
@@ -1250,7 +1250,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "TypeScript",
-          "notes": "purpose-built for multi-step agent traces; not just single LLM call logging"
+          "notes": "Laminar is purpose-built observability for AI agents, not just general LLM traci"
         },
         {
           "name": "traceroot",
@@ -1267,7 +1267,7 @@
           "pushed_at": "2026-04-26",
           "license": "NOASSERTION",
           "language": "TypeScript",
-          "notes": "observability with self-healing hooks; auto-corrects failing agent workflows"
+          "notes": "TraceRoot is an observability tool for AI agents with a distinctive \"self-healin"
         }
       ]
     },
@@ -1289,7 +1289,7 @@
           "pushed_at": "2026-04-25",
           "license": "AGPL-3.0",
           "language": "TypeScript",
-          "notes": "secure, ephemeral sandboxes for executing AI-generated code"
+          "notes": "Daytona provides secure, elastic infrastructure for executing AI-generated code\u2014"
         },
         {
           "name": "Temporal",
@@ -1306,7 +1306,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "Go",
-          "notes": "durable execution substrate; agents that survive process crashes"
+          "notes": "default durable runtime for long agents"
         },
         {
           "name": "trigger.dev",
@@ -1323,7 +1323,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "TypeScript",
-          "notes": "fully-managed serverless runtime; deploy long-running agents without infra setup"
+          "notes": "Trigger.dev is a fully-managed platform for building and deploying AI agents and"
         },
         {
           "name": "Inngest",
@@ -1340,7 +1340,7 @@
           "pushed_at": "2026-04-25",
           "license": "NOASSERTION",
           "language": "Go",
-          "notes": "event-driven durable workflows; zero-infra orchestration for serverless & edge"
+          "notes": "TS/Node-friendly alternative"
         }
       ]
     },
@@ -1362,7 +1362,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "opinionated RAG stack; deep PDF/document parsing + visual chunking strategies"
+          "notes": "strong PDF parsing; opinionated"
         },
         {
           "name": "anything-llm",
@@ -1379,7 +1379,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "JavaScript",
-          "notes": "privacy-first all-in-one; on-device RAG with minimal setup"
+          "notes": "AnythingLLM is a distinctive all-in-one RAG platform emphasizing privacy-first,"
         },
         {
           "name": "LlamaIndex",
@@ -1396,7 +1396,7 @@
           "pushed_at": "2026-04-26",
           "license": "MIT",
           "language": "Python",
-          "notes": "broad RAG ecosystem; document loaders, indices, and multi-stage retrieval pipelines"
+          "notes": "broad RAG ecosystem"
         },
         {
           "name": "LightRAG",
@@ -1413,7 +1413,7 @@
           "pushed_at": "2026-04-26",
           "license": "MIT",
           "language": "Python",
-          "notes": "graph-based indexing with dual-level retrieval; speed-optimized EMNLP alternative"
+          "notes": "LightRAG is a peer-reviewed (EMNLP 2025) RAG implementation emphasizing simplici"
         },
         {
           "name": "khoj",
@@ -1430,7 +1430,7 @@
           "pushed_at": "2026-03-26",
           "license": "AGPL-3.0",
           "language": "Python",
-          "notes": "self-hostable personal AI with RAG over docs, web, and scheduled automations"
+          "notes": "Khoj is a self-hostable AI assistant for personal knowledge management with RAG"
         },
         {
           "name": "GraphRAG",
@@ -1447,7 +1447,7 @@
           "pushed_at": "2026-04-26",
           "license": "MIT",
           "language": "Python",
-          "notes": "graph-based RAG; better on multi-hop synthesis vs. similarity retrieval"
+          "notes": "graph-based RAG from Microsoft Research"
         },
         {
           "name": "PageIndex",
@@ -1464,7 +1464,7 @@
           "pushed_at": "2026-04-24",
           "license": "MIT",
           "language": "Python",
-          "notes": "vectorless RAG using LLM reasoning instead of embeddings for document retrieval"
+          "notes": "PageIndex presents a distinctive \"vectorless\" RAG approach using reasoning-based"
         },
         {
           "name": "Haystack",
@@ -1481,7 +1481,7 @@
           "pushed_at": "2026-04-24",
           "license": "Apache-2.0",
           "language": "MDX",
-          "notes": "pipeline orchestration for RAG; explicit control over retrieval + generation flow"
+          "notes": "production-leaning RAG"
         },
         {
           "name": "txtai",
@@ -1498,7 +1498,7 @@
           "pushed_at": "2026-04-21",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "semantic search + RAG + LLM orchestration in one Python package; batteries-included"
+          "notes": "txtai is an established all-in-one framework for semantic search and RAG workflo"
         }
       ]
     },
@@ -1520,7 +1520,7 @@
           "pushed_at": "2026-04-23",
           "license": "Apache-2.0",
           "language": "HTML",
-          "notes": "pre-deploy LLM red-team scanner; broad probe library for vulnerability testing"
+          "notes": "default pre-deploy red-team scanner"
         },
         {
           "name": "LLM Guard",
@@ -1537,7 +1537,7 @@
           "pushed_at": "2025-12-15",
           "license": "MIT",
           "language": "Python",
-          "notes": "runtime input/output guardrails library; default for prompt injection & PII defense"
+          "notes": "default runtime input/output guardrails"
         },
         {
           "name": "agentic_security",
@@ -1554,13 +1554,13 @@
           "pushed_at": "2026-02-03",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "agentic-focused LLM vulnerability scanner; red-team probe kit for AI systems"
+          "notes": "Agentic_security is a focused LLM vulnerability scanner and AI red-teaming toolk"
         },
         {
           "name": "PyRIT",
           "repo": "Azure/PyRIT",
           "deploy_status": "beta",
-          "status": "archived",
+          "status": "active",
           "stars": 18,
           "forks": 1,
           "watchers": 0,
@@ -1571,7 +1571,7 @@
           "pushed_at": "2026-03-25",
           "license": "MIT",
           "language": "Python",
-          "notes": "red-team toolkit for GenAI; scripting attacks, probes, and multi-turn jailbreaks"
+          "notes": "upstream archived; investigate successor (red-team toolkit)"
         }
       ]
     },
@@ -1593,7 +1593,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "TypeScript",
-          "notes": "MCP server exposing Chrome DevTools to agents for browser automation & inspection"
+          "notes": "A distinctive MCP server exposing Chrome DevTools functionality to coding agents"
         },
         {
           "name": "github-mcp-server",
@@ -1610,7 +1610,7 @@
           "pushed_at": "2026-04-24",
           "license": "MIT",
           "language": "Go",
-          "notes": "GitHub's official MCP server; first-party integration for repos, issues, PRs"
+          "notes": "GitHub's official MCP server provides first-party integration between GitHub and"
         },
         {
           "name": "composio",
@@ -1627,7 +1627,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "TypeScript",
-          "notes": "1000+ authenticated API connectors; breadth over depth for multi-tool agents"
+          "notes": "Composio is a tool integration platform offering 1000+ pre-built connectors, aut"
         },
         {
           "name": "FastMCP",
@@ -1644,7 +1644,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "Pythonic MCP server builder; de facto standard for Python MCP implementations"
+          "notes": "default Python MCP server framework"
         },
         {
           "name": "serena",
@@ -1661,7 +1661,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "Python",
-          "notes": "MCP server for semantic code search and edit; IDE-like capabilities for agents"
+          "notes": "A specialized MCP toolkit for coding with semantic retrieval and editing\u2014positio"
         },
         {
           "name": "Skill_Seekers",
@@ -1678,7 +1678,7 @@
           "pushed_at": "2026-04-23",
           "license": "MIT",
           "language": "Python",
-          "notes": "converts docs, repos, and PDFs into Claude MCP skills with conflict detection"
+          "notes": "Distinctive MCP server builder that converts docs, GitHub repos, and PDFs into C"
         },
         {
           "name": "mcp-use",
@@ -1695,7 +1695,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "TypeScript",
-          "notes": "fullstack MCP SDK: server + client components for both agents and chat UIs"
+          "notes": "Fullstack MCP framework for developing both MCP apps (ChatGPT/Claude integration"
         },
         {
           "name": "claude-context",
@@ -1712,7 +1712,7 @@
           "pushed_at": "2026-04-26",
           "license": "MIT",
           "language": "TypeScript",
-          "notes": "semantic code search MCP; full-repo context without token-window constraints"
+          "notes": "MCP server providing semantic code search for coding agents, making entire codeb"
         },
         {
           "name": "Model Context Protocol",
@@ -1729,7 +1729,7 @@
           "pushed_at": "2026-04-24",
           "license": "NOASSERTION",
           "language": "TypeScript",
-          "notes": "canonical spec for LLM\u2194tool integration; remote resource & tool discovery"
+          "notes": "spec is canonical for tool integration"
         },
         {
           "name": "cursor-talk-to-figma-mcp",
@@ -1746,7 +1746,7 @@
           "pushed_at": "2026-03-07",
           "license": "MIT",
           "language": "JavaScript",
-          "notes": "MCP server bridging AI agents to Figma's API for design read/write"
+          "notes": "TalkToFigma is a concrete MCP server bridging AI agents with Figma's API for pro"
         },
         {
           "name": "XcodeBuildMCP",
@@ -1763,7 +1763,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "TypeScript",
-          "notes": "MCP server for Xcode projects; build, test, and inspect iOS/macOS codebases"
+          "notes": "XcodeBuildMCP is a concrete MCP server for iOS/macOS development\u2014building, testi"
         },
         {
           "name": "openagent",
@@ -1780,7 +1780,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Go",
-          "notes": "Enterprise MCP/A2A management with admin UI, SSO, and multi-tenant user controls"
+          "notes": "Enterprise MCP management platform with admin UI, SSO, and user management."
         },
         {
           "name": "mcp-context-forge",
@@ -1797,7 +1797,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "Gateway that unifies MCP, A2A, REST/gRPC behind one endpoint; discovery + guardrails"
+          "notes": "An AI gateway/proxy that unifies MCP, A2A, and REST/gRPC APIs behind a single en"
         },
         {
           "name": "arxiv-mcp-server",
@@ -1814,7 +1814,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "MCP server for arXiv paper search and analysis"
+          "notes": "A concrete MCP server for arXiv paper search and analysis."
         },
         {
           "name": "metamcp",
@@ -1831,7 +1831,7 @@
           "pushed_at": "2026-02-08",
           "license": "MIT",
           "language": "TypeScript",
-          "notes": "Proxy layer for multiplexing MCP servers; single endpoint for many tools"
+          "notes": "MetaMCP provides MCP aggregation, orchestration, and gateway infrastructure in a"
         },
         {
           "name": "google_workspace_mcp",
@@ -1848,7 +1848,7 @@
           "pushed_at": "2026-04-25",
           "license": "MIT",
           "language": "Python",
-          "notes": "MCP server exposing Gmail, Calendar, Docs, Sheets, Slides & Drive APIs"
+          "notes": "Comprehensive MCP server exposing Google Workspace APIs (Gmail, Calendar, Docs,"
         }
       ]
     },
@@ -1870,7 +1870,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Go",
-          "notes": "cloud-native vector DB for hundreds-of-millions+ scale; distributed ANN search"
+          "notes": "for hundreds-of-millions+ vectors"
         },
         {
           "name": "Qdrant",
@@ -1887,7 +1887,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "Rust",
-          "notes": "dedicated vector DB; performance-first Rust engine for large-scale semantic search"
+          "notes": "default dedicated vector store"
         },
         {
           "name": "Chroma",
@@ -1921,7 +1921,7 @@
           "pushed_at": "2026-04-15",
           "license": "NOASSERTION",
           "language": "C",
-          "notes": "vectors in Postgres \u2014 when transactional consistency with rows matters"
+          "notes": "default when Postgres is in the stack"
         },
         {
           "name": "Weaviate",
@@ -1938,7 +1938,7 @@
           "pushed_at": "2026-04-25",
           "license": "BSD-3-Clause",
           "language": "Go",
-          "notes": "cloud-native vector DB with hybrid search and structured filtering built-in"
+          "notes": "pick when hybrid search is central"
         },
         {
           "name": "LEANN",
@@ -1955,7 +1955,7 @@
           "pushed_at": "2026-04-24",
           "license": "MIT",
           "language": "Python",
-          "notes": "on-device vector DB; 97% smaller indexes for private RAG on laptops and phones"
+          "notes": "LEANN is a research-backed vector database optimized for on-device RAG with 97%"
         },
         {
           "name": "orama",
@@ -1972,7 +1972,7 @@
           "pushed_at": "2026-02-13",
           "license": "NOASSERTION",
           "language": "TypeScript",
-          "notes": "sub-2kb vector search that runs in-browser or on the edge; full-text + hybrid"
+          "notes": "Orama is a sub-2kb vector database and search engine for browser, edge, and serv"
         },
         {
           "name": "lancedb",
@@ -1989,7 +1989,7 @@
           "pushed_at": "2026-04-25",
           "license": "Apache-2.0",
           "language": "HTML",
-          "notes": "embedded vector store; on-disk format scales to huge datasets without infra"
+          "notes": "LanceDB is a distinctive embedded vector database optimized for multimodal AI re"
         },
         {
           "name": "zvec",
@@ -2006,7 +2006,7 @@
           "pushed_at": "2026-04-24",
           "license": "Apache-2.0",
           "language": "C++",
-          "notes": "embedded vector store; zero-deployment alternative to standalone vector servers"
+          "notes": "zvec is an in-process vector database from Alibaba, offering a distinct deployme"
         },
         {
           "name": "deeplake",
@@ -2023,7 +2023,7 @@
           "pushed_at": "2026-02-16",
           "license": "Apache-2.0",
           "language": "C++",
-          "notes": "multimodal vector store; optimized for image/video alongside text embeddings"
+          "notes": "Deep Lake is a multimodal vector database for AI agents emphasizing images, vide"
         }
       ]
     },
@@ -2045,7 +2045,7 @@
           "pushed_at": "2026-04-25",
           "license": "BSD-2-Clause",
           "language": "Python",
-          "notes": "real-time voice pipelines; frame-by-frame transport abstraction for conversational AI"
+          "notes": "real-time voice pipelines"
         },
         {
           "name": "LiveKit Agents",
@@ -2062,7 +2062,7 @@
           "pushed_at": "2026-04-26",
           "license": "Apache-2.0",
           "language": "Python",
-          "notes": "WebRTC-native framework for realtime voice and video agents with low latency"
+          "notes": "WebRTC-native voice agents"
         }
       ]
     }

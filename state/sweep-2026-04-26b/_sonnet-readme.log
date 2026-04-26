@@ -1,0 +1,94 @@
+README fetch: 164 hit, 0 miss
+auto-skip: 73 already-tracked candidates filtered (no LLM call)
+first pass: 91 candidates · claude-sonnet-4-5 · 8 workers
+[  1/91] microsoft/generative-ai-for-beginners                   → skip  (1.00) -                            This is a course/tutorial repository with 21 structured less
+[  2/91] dair-ai/Prompt-Engineering-Guide                        → skip  (0.95) -                            Educational resource/guide, not a deployable tool. The READM
+[  3/91] f/prompts.chat                                          → skip  (0.95) -                            This is a prompt collection and library, not an agentic-AI t
+[  4/91] PaddlePaddle/PaddleOCR                                  → skip  (0.92) -                            PaddleOCR is a powerful OCR toolkit for extracting text from
+[  5/91] n8n-io/n8n                                              → skip  (0.85) -                            n8n is a general-purpose workflow automation platform (like 
+[  6/91] open-webui/open-webui                                   → add   (0.92) agent-frameworks             Open WebUI is a comprehensive self-hosted AI platform with f
+[  7/91] affaan-m/everything-claude-code                         → skip  (0.92) -                            Star count (167K) is implausibly inflated and marketing-orie
+[  8/91] microsoft/ai-agents-for-beginners                       → skip  (1.00) -                            This is a tutorial course with 12 lessons for teaching begin
+[  9/91] NousResearch/hermes-agent                               → add   (0.92) agent-frameworks             Full-featured framework from Nous Research with unique self-
+[ 10/91] meilisearch/meilisearch                                 → add   (0.92) vector-stores                Meilisearch is a mature search engine (57K stars) offering h
+[ 11/91] shanraisshan/claude-code-best-practice                  → skip  (0.95) -                            This is a best-practices guide for Claude Code (Anthropic's 
+[ 12/91] sansan0/TrendRadar                                      → skip  (0.92) -                            TrendRadar is a news/trend aggregation service that monitors
+[ 13/91] code-yeongyu/oh-my-openagent                            → skip  (0.88) -                            Heavily marketed harness over existing code agents (Cursor, 
+[ 14/91] upstash/context7                                        → add   (0.92) tool-use-and-mcp             Context7 is a distinctive MCP server and CLI that fetches up
+[ 15/91] JuliusBrussee/caveman                                   → skip  (0.95) -                            This is a prompt-engineering technique (caveman-style compre
+[ 16/91] jeecgboot/JeecgBoot                                     → skip  (0.92) -                            JeecgBoot is a full-stack low-code/no-code platform for rapi
+[ 17/91] 2noise/ChatTTS                                          → skip  (0.95) -                            ChatTTS is a text-to-speech model for dialogue scenarios, no
+[ 18/91] HKUDS/nanobot                                           → add   (0.85) agent-frameworks             nanobot is a distinctive ultra-lightweight personal AI agent
+[ 19/91] datawhalechina/hello-agents                             → skip  (0.95) -                            Tutorial repository ("从零开始构建智能体" = "Build Agents from Scratc
+[ 20/91] asgeirtj/system_prompts_leaks                           → skip  (0.95) -                            Collection of leaked system prompts from ChatGPT, Claude, Ge
+[ 21/91] 666ghj/BettaFish                                        → skip  (0.92) -                            BettaFish is a vertical application for Chinese social media
+[ 22/91] mindsdb/mindsdb                                         → add   (0.85) rag-and-retrieval            MindsDB is a SQL-compatible query engine that unifies struct
+[ 23/91] D4Vinci/Scrapling                                       → skip  (0.88) -                            Scrapling is a traditional web scraping framework (fetchers,
+[ 24/91] patchy631/ai-engineering-hub                            → skip  (0.95) -                            This is a tutorial/course repository, not a tool. The README
+[ 25/91] ruvnet/ruflo                                            → skip  (0.82) -                            README reads as marketing/star-farm with inflated claims (10
+[ 26/91] NirDiamant/RAG_Techniques                               → skip  (0.95) -                            Tutorial repository with Jupyter Notebooks, not a tool. The 
+[ 27/91] elder-plinius/CL4R1T4S                                  → skip  (1.00) -                            This is a collection of leaked system prompts and jailbreak 
+[ 28/91] linshenkx/prompt-optimizer                              → skip  (0.95) -                            End-user prompt refinement application, not agentic-AI infra
+[ 29/91] liguodongiot/llm-action                                 → skip  (0.95) -                            This is a tutorial/guide collection for LLM training and dep
+[ 30/91] ItzCrazyKns/Vane                                        → add   (0.85) rag-and-retrieval            Privacy-focused AI answering engine combining web search (Se
+[ 31/91] AutomaApp/automa                                        → skip  (0.85) -                            Automa is a traditional browser automation extension for RPA
+[ 32/91] activepieces/activepieces                               → skip  (0.85) -                            Activepieces is primarily a workflow automation platform (se
+[ 33/91] 1Panel-dev/MaxKB                                        → add   (0.82) agent-frameworks             MaxKB is a full-featured enterprise agent platform with RAG 
+[ 34/91] NirDiamant/agents-towards-production                    → skip  (0.95) -                            This is a tutorial collection / educational resource, not a 
+[ 35/91] AI4Finance-Foundation/FinGPT                            → skip  (0.92) -                            FinGPT is a domain-specific LLM research project that releas
+[ 36/91] nukeop/nuclear                                          → skip  (0.95) -                            Nuclear is a desktop music streaming app, not agentic-AI inf
+[ 37/91] czlonkowski/n8n-mcp                                     → add   (0.92) tool-use-and-mcp             n8n-MCP is a Model Context Protocol server providing AI assi
+[ 38/91] microsoft/mcp-for-beginners                             → skip  (1.00) -                            This is a curriculum/course for learning MCP, not a tool. Th
+[ 39/91] getmaxun/maxun                                          → add   (0.85) data-and-extraction          Maxun is a no-code web data extraction platform with recorde
+[ 40/91] eigent-ai/eigent                                        → skip  (0.92) -                            Eigent is a desktop productivity app ("Cowork Desktop") with
+[ 41/91] open-metadata/OpenMetadata                              → skip  (0.92) -                            OpenMetadata is a data catalog and metadata management platf
+[ 42/91] xpzouying/xiaohongshu-mcp                               → add   (0.85) tool-use-and-mcp             A production-ready MCP server for Xiaohongshu (Little Red Bo
+[ 43/91] alirezarezvani/claude-skills                            → skip  (0.95) -                            Collection of prompt-engineering templates and instruction p
+[ 44/91] LouisShark/chatgpt_system_prompt                        → skip  (0.95) -                            This is a collection of GPT system prompts and prompt inject
+[ 45/91] dataelement/bisheng                                     → add   (0.82) agent-frameworks             BISHENG is an LLM devops platform with distinctive features:
+[ 46/91] tensorzero/tensorzero                                   → add   (0.95) observability                TensorZero is a comprehensive LLMOps platform built in Rust 
+[ 47/91] The-Pocket/PocketFlow                                   → add   (0.85) agent-frameworks             PocketFlow is a real framework with a distinctive 100-line g
+[ 48/91] Netflix/metaflow                                        → skip  (0.85) -                            Metaflow is a general ML orchestration framework for the ful
+[ 49/91] oceanbase/oceanbase                                     → skip  (0.85) -                            OceanBase is primarily a distributed relational database (OL
+[ 50/91] databendlabs/databend                                   → skip  (0.85) -                            Databend is a data warehouse with vector/full-text search ca
+[ 51/91] CoplayDev/unity-mcp                                     → add   (0.92) tool-use-and-mcp             Unity MCP is a distinctive MCP server bridging AI assistants
+[ 52/91] microsoft/agent-framework                               → add   (0.95) agent-frameworks             Microsoft's official multi-language agent framework with Pyt
+[ 53/91] bentoml/BentoML                                         → skip  (0.92) -                            BentoML is a general ML model serving framework focused on i
+[ 54/91] MiroMindAI/MiroThinker                                  → add   (0.85) agent-frameworks             MiroThinker is a distinctive deep research agent framework o
+[ 55/91] VoltAgent/voltagent                                     → add   (0.85) agent-frameworks             VoltAgent is a comprehensive TypeScript agent framework with
+[ 56/91] Upsonic/Upsonic                                         → add   (0.85) agent-frameworks             Upsonic is a Python agent framework with distinctive dual mo
+[ 57/91] EvoMap/evolver                                          → add   (0.82) agent-frameworks             Evolver is a self-evolution engine for AI agents built on th
+[ 58/91] firecrawl/firecrawl-mcp-server                          → skip  (0.95) tool-use-and-mcp             This is an MCP server adapter for Firecrawl, which is alread
+[ 59/91] jeinlee1991/chinese-llm-benchmark                       → skip  (0.95) -                            This is a leaderboard / benchmark results repository, not a 
+[ 60/91] autoscrape-labs/pydoll                                  → defer (0.70) browser-and-computer-use     Pydoll offers stealth browser automation via CDP (no WebDriv
+[ 61/91] JackChen-me/open-multi-agent                            → add   (0.88) agent-frameworks             TypeScript-native multi-agent orchestration with automatic g
+[ 62/91] mnfst/manifest                                          → skip  (0.92) model-routing                Strictly redundant with already-tracked model routing tools 
+[ 63/91] nanbingxyz/5ire                                         → add   (0.85) tool-use-and-mcp             5ire is a cross-platform desktop MCP client with distinctive
+[ 64/91] crestalnetwork/intentkit                                → add   (0.75) agent-frameworks             IntentKit is a distinctive cloud-native multi-agent framewor
+[ 65/91] coze-dev/coze-loop                                      → add   (0.85) observability                Coze Loop is a full-lifecycle AI agent platform with prompt 
+[ 66/91] rllm-org/rllm                                           → add   (0.85) agent-frameworks             rLLM is a distinctive RL training framework for AI agents th
+[ 67/91] AIDC-AI/ComfyUI-Copilot                                 → skip  (0.92) -                            ComfyUI-Copilot is a plugin for ComfyUI (an image generation
+[ 68/91] ag2ai/ag2                                               → skip  (0.95) agent-frameworks             AG2 is the renamed/rebranded version of Microsoft AutoGen, w
+[ 69/91] FellouAI/eko                                            → add   (0.85) agent-frameworks             Production-ready JavaScript framework for building multi-age
+[ 70/91] exa-labs/exa-mcp-server                                 → add   (0.92) tool-use-and-mcp             Exa MCP server is a production-ready MCP tool providing web 
+[ 71/91] inclusionAI/AReaL                                       → add   (0.85) agent-frameworks             AReaL is a distinctive async RL infrastructure for training 
+[ 72/91] Mai-with-u/MaiBot                                       → add   (0.75) agent-frameworks             MaiBot is a distinctive LLM agent focused on human-like conv
+[ 73/91] DSXiangLi/DecryptPrompt                                 → skip  (0.95) -                            This is a Chinese-language curated list and blog series summ
+[ 74/91] Agenta-AI/agenta                                        → add   (0.85) observability                Agenta is an integrated LLMOps platform combining prompt man
+[ 75/91] pguso/ai-agents-from-scratch                            → skip  (0.95) -                            This is an educational tutorial repository that teaches AI a
+[ 76/91] holaboss-ai/holaOS                                      → add   (0.82) orchestration-and-runtime    holaOS is an Electron-based "Agent Computer" for long-horizo
+[ 77/91] THUDM/AgentBench                                        → skip  (0.95) -                            AgentBench is a research benchmark suite (ICLR'24) for evalu
+[ 78/91] memodb-io/Acontext                                      → add   (0.85) memory                       Acontext automatically captures agent learnings as human-rea
+[ 79/91] MiroMindAI/MiroFlow                                     → add   (0.88) agent-frameworks             MiroFlow is a research agent framework with reproducible SOT
+[ 80/91] open-gitagent/gitagent-protocol                         → add   (0.82) agent-frameworks             GitAgent Protocol defines portable AI agents as git repos wi
+[ 81/91] IvanMurzak/Unity-MCP                                    → add   (0.85) tool-use-and-mcp             Unity-MCP is a specialized MCP server for Unity game develop
+[ 82/91] playwright-community/playwright-go                      → skip  (0.95) -                            Go language binding for Microsoft's Playwright, a general-pu
+[ 83/91] zcaceres/markdownify-mcp                                → add   (0.85) tool-use-and-mcp             A legitimate MCP server that converts diverse file formats (
+[ 84/91] brightdata/brightdata-mcp                               → add   (0.85) tool-use-and-mcp             Legitimate MCP server from Bright Data providing web scrapin
+[ 85/91] genieincodebottle/generative-ai                         → skip  (0.98) -                            This is a comprehensive educational resource and tutorial co
+[ 86/91] langfengQ/verl-agent                                    → add   (0.82) agent-frameworks             verl-agent is a specialized RL framework for training LLM ag
+[ 87/91] HolmesGPT/holmesgpt                                     → add   (0.90) agent-frameworks             HolmesGPT is a CNCF sandbox SRE agent for incident investiga
+[ 88/91] asheshgoplani/agent-deck                                → add   (0.85) code-agents                  Agent Deck is a terminal session manager for AI coding agent
+[ 89/91] BlazeUp-AI/Observal                                     → add   (0.85) observability                Observal is a self-hosted observability platform tailored fo
+[ 90/91] AgentEra/Agently                                        → add   (0.85) agent-frameworks             Production-focused GenAI framework with contract-first schem
+[ 91/91] JudgmentLabs/judgeval                                   → defer (0.65) observability                OpenTelemetry-based SDK combining tracing, evaluation, and a

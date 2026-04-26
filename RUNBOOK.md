@@ -305,6 +305,16 @@ isArchived,isDisabled,defaultBranchRef,createdAt,pushedAt,diskUsage,latestReleas
   7. New AND off-topic vs. category checklist (§11) → `skip`.
 - **Idempotency**: pure function of inputs; rewrites `04-triage.jsonl`.
 - **Resume rule**: if `triage.done` exists, skip.
+- **LLM-scored sub-stage** (`triage_score.py` → `04-triage-scored.jsonl`, marker `triage-scored.done`): a complementary Instructor-backed scorer that classifies inbox rows into `add` / `defer` / `skip` with `proposed_category`, `proposed_deploy_status`, `redundancy_with`, and `reason`. Each output row carries a `tier` annotation: `auto` (deterministic skip for already-tracked repos — no LLM call), `haiku` (Haiku 4.5 first pass), or `haiku→sonnet` (rescored on Sonnet 4.5 for `defer` or low-confidence first-pass results). The user message includes a README excerpt fetched via `gh api repos/{repo}/readme` and cached under `state/.cache/readmes/`. See `runbooks/2026-04-26-triage-upgrade.md` for the upgrade plan and validation thresholds.
+
+### 7.11b `apply:summary` (sub-stage of triage application)
+- **What it does**: for every tool that ends up in `state/landscape-meta.json` (both newly-added and refresh-touched), write a one-line "thesis" string into the `notes` field. This is what shows in the rightmost cell of `landscape.md` and at the bottom of the treemap tooltip — so it must be useful, not redundant with stars/forks shown elsewhere.
+- **Implementation**: `state/lib/summarize.py`. Instructor-backed (`claude-sonnet-4-5` by default) with a Pydantic `Summary` schema constraining output to ≤90 chars, banning star/fork counts, banned words (popular, comprehensive, robust, leading, etc.), and the repo's own name as a leading prefix. System prompt is cached. Voice target: terse opinionated thesis lines like "default for stateful agent flows" or "vectors in Postgres — when transactional consistency matters".
+- **When called**:
+  - Inline by `apply:category-page` (§7.12) for every new `add` decision — the result becomes the new `notes` value.
+  - As a periodic full refresh via a scratch script (e.g. `state/sweep-<DATE>/refresh_summaries.py`) that re-summarizes every tracked tool. Backup the existing `landscape-meta.json` before overwriting (`landscape-meta.before-summary-refresh.json`).
+- **Idempotency**: pure function of (repo, name, category, upstream description, prior notes). Re-running produces stable, near-identical output for the same inputs because the system prompt is fixed and the model is the same.
+- **Failure mode**: any per-tool exception is caught and the pipeline falls back to a truncated triage reason (`short_note(...)`) so a single failed call never blocks the apply pass.
 
 ### 7.12 `apply:category-page`
 - **Inputs**: `04-triage.jsonl` rows where `decision="add"` or `"update"`; current `categories/<category>.md` files; `triage.done`.
@@ -363,6 +373,7 @@ isArchived,isDisabled,defaultBranchRef,createdAt,pushedAt,diskUsage,latestReleas
 - **Default color encoding** in the page is `deploy_status` (🟢 / 🟡 / 🔴 / —, matching §3); `status` is exposed as a secondary "upstream status" mode and shown alongside `deploy_status` in the tooltip.
 - **Idempotency**: pure function of inputs. Re-running for the same date overwrites both `data.json` and `data-<DATE>.json`.
 - **Viewing**: `python3 -m http.server -d viz 8080` then `http://localhost:8080/treemap.html`. Opening the file via `file://` is intentionally unsupported (the page fetches `data.json`, which browsers block from `file://`).
+- **Publish path → oturu**: the public face of this treemap lives at https://oturu.online/agentic-ai-landscape, served from the oturu repo (`~/code/oturu/`). The trigger phrase **"deploy to oturu"** (also "update the treemap on oturu") means: re-run `viz:treemap` here so `viz/data.json` is fresh, then follow `~/code/oturu/runbooks/runbook-agentic-ai-landscape.md` — it copies the JSON into oturu (rewriting the root `name` to `"agentic-ai-radar"` for brand consistency) and runs `python -m app.cli deploy` to ship to the prod droplet. The oturu page (`app/templates/agentic_ai_landscape.html`) is hand-maintained on the oturu side; only `viz/data.json` flows from this repo.
 
 ### 7.18 `radar-diff`
 - **Inputs**: `05-actions.jsonl`, `06-stale.jsonl`, the union of `03b-velocity.jsonl` and `03d-refresh-velocity.jsonl`, current `radar.md`; `viz-treemap.done`.

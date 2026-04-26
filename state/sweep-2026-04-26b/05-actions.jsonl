@@ -1,6 +1,67 @@
-{"repo": "langchain-ai/langchain", "action": "create", "path": "categories/agent-frameworks.md", "ts": "2026-04-26T06:09:51Z"}
-{"repo": "langgenius/dify", "action": "create", "path": "categories/agent-frameworks.md", "ts": "2026-04-26T06:09:51Z"}
-{"repo": "agno-agi/agno", "action": "create", "path": "categories/agent-frameworks.md", "ts": "2026-04-26T06:09:51Z"}
-{"repo": "FlowiseAI/Flowise", "action": "create", "path": "categories/agent-frameworks.md", "ts": "2026-04-26T06:09:51Z"}
-{"repo": "microsoft/graphrag", "action": "create", "path": "categories/rag-and-retrieval.md", "ts": "2026-04-26T06:09:51Z"}
-{"repo": "google-gemini/gemini-cli", "action": "create", "path": "categories/code-agents.md", "ts": "2026-04-26T06:09:51Z"}
+{"repo": "daytonaio/daytona", "action": "create-stub", "path": "categories/orchestration-and-runtime.md", "category": "orchestration-and-runtime", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "thedotmack/claude-mem", "action": "create-stub", "path": "categories/memory.md", "category": "memory", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "bytedance/deer-flow", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "Mintplex-Labs/anything-llm", "action": "create-stub", "path": "categories/rag-and-retrieval.md", "category": "rag-and-retrieval", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "aaif-goose/goose", "action": "create-stub", "path": "categories/code-agents.md", "category": "code-agents", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "ChromeDevTools/chrome-devtools-mcp", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "HKUDS/LightRAG", "action": "create-stub", "path": "categories/rag-and-retrieval.md", "category": "rag-and-retrieval", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "khoj-ai/khoj", "action": "create-stub", "path": "categories/rag-and-retrieval.md", "category": "rag-and-retrieval", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "bytedance/UI-TARS-desktop", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "lightpanda-io/browser", "action": "create-stub", "path": "categories/browser-and-computer-use.md", "category": "browser-and-computer-use", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "github/github-mcp-server", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "ComposioHQ/composio", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "assafelovic/gpt-researcher", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "VectifyAI/PageIndex", "action": "create-stub", "path": "categories/rag-and-retrieval.md", "category": "rag-and-retrieval", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "mlflow/mlflow", "action": "create-stub", "path": "categories/observability.md", "category": "observability", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "agentscope-ai/agentscope", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "oraios/serena", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "Skyvern-AI/skyvern", "action": "create-stub", "path": "categories/browser-and-computer-use.md", "category": "browser-and-computer-use", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "comet-ml/opik", "action": "create-stub", "path": "categories/observability.md", "category": "observability", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "alibaba/page-agent", "action": "create-stub", "path": "categories/browser-and-computer-use.md", "category": "browser-and-computer-use", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "RightNow-AI/openfang", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "topoteretes/cognee", "action": "create-stub", "path": "categories/memory.md", "category": "memory", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "raga-ai-hub/RagaAI-Catalyst", "action": "create-stub", "path": "categories/observability.md", "category": "observability", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "HKUDS/DeepCode", "action": "create-stub", "path": "categories/code-agents.md", "category": "code-agents", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "memvid/memvid", "action": "create-stub", "path": "categories/memory.md", "category": "memory", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "triggerdotdev/trigger.dev", "action": "create-stub", "path": "categories/orchestration-and-runtime.md", "category": "orchestration-and-runtime", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "dottxt-ai/outlines", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "yusufkaraaslan/Skill_Seekers", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "neuml/txtai", "action": "create-stub", "path": "categories/rag-and-retrieval.md", "category": "rag-and-retrieval", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "bentoml/OpenLLM", "action": "create-stub", "path": "categories/model-hosting.md", "category": "model-hosting", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "langchain4j/langchain4j", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "Portkey-AI/gateway", "action": "create-stub", "path": "categories/model-routing.md", "category": "model-routing", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "microsoft/promptflow", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "yichuan-w/LEANN", "action": "create-stub", "path": "categories/vector-stores.md", "category": "vector-stores", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "oramasearch/orama", "action": "create-stub", "path": "categories/vector-stores.md", "category": "vector-stores", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "aden-hive/hive", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "lancedb/lancedb", "action": "create-stub", "path": "categories/vector-stores.md", "category": "vector-stores", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "mcp-use/mcp-use", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "alibaba/zvec", "action": "create-stub", "path": "categories/vector-stores.md", "category": "vector-stores", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "zilliztech/claude-context", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "activeloopai/deeplake", "action": "create-stub", "path": "categories/vector-stores.md", "category": "vector-stores", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "pinchtab/pinchtab", "action": "create-stub", "path": "categories/browser-and-computer-use.md", "category": "browser-and-computer-use", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "evidentlyai/evidently", "action": "create-stub", "path": "categories/observability.md", "category": "observability", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "lsdefine/GenericAgent", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "0xPlaygrounds/rig", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "traceloop/openllmetry", "action": "create-stub", "path": "categories/observability.md", "category": "observability", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "steel-dev/steel-browser", "action": "create-stub", "path": "categories/browser-and-computer-use.md", "category": "browser-and-computer-use", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "grab/cursor-talk-to-figma-mcp", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "katanemo/plano", "action": "create-stub", "path": "categories/model-routing.md", "category": "model-routing", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "mishushakov/llm-scraper", "action": "create-stub", "path": "categories/data-and-extraction.md", "category": "data-and-extraction", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "Helicone/helicone", "action": "create-stub", "path": "categories/observability.md", "category": "observability", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "getsentry/XcodeBuildMCP", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "TencentCloudADP/youtu-agent", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "the-open-agent/openagent", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "maximhq/bifrost", "action": "create-stub", "path": "categories/model-routing.md", "category": "model-routing", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "gptme/gptme", "action": "create-stub", "path": "categories/code-agents.md", "category": "code-agents", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "pydantic/logfire", "action": "create-stub", "path": "categories/observability.md", "category": "observability", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "langroid/langroid", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "evalstate/fast-agent", "action": "create-stub", "path": "categories/agent-frameworks.md", "category": "agent-frameworks", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "IBM/mcp-context-forge", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "jo-inc/camofox-browser", "action": "create-stub", "path": "categories/browser-and-computer-use.md", "category": "browser-and-computer-use", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "lmnr-ai/lmnr", "action": "create-stub", "path": "categories/observability.md", "category": "observability", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "blazickjp/arxiv-mcp-server", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "metatool-ai/metamcp", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "taylorwilsdon/google_workspace_mcp", "action": "create-stub", "path": "categories/tool-use-and-mcp.md", "category": "tool-use-and-mcp", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "msoedov/agentic_security", "action": "create-stub", "path": "categories/security.md", "category": "security", "ts": "2026-04-26T06:21:51Z"}
+{"repo": "traceroot-ai/traceroot", "action": "create-stub", "path": "categories/observability.md", "category": "observability", "ts": "2026-04-26T06:21:51Z"}
