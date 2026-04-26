@@ -1,0 +1,25 @@
+{
+  "snapshot_ts": "2026-04-26T05:50:36Z",
+  "refreshed": 43,
+  "errors": 0,
+  "stale_flagged": 1,
+  "moved": [
+    {
+      "repo": "explodinggradients/ragas",
+      "new_repo": "vibrantlabsai/ragas"
+    },
+    {
+      "repo": "jlowin/fastmcp",
+      "new_repo": "PrefectHQ/fastmcp"
+    },
+    {
+      "repo": "All-Hands-AI/OpenHands",
+      "new_repo": "OpenHands/OpenHands"
+    },
+    {
+      "repo": "mendableai/firecrawl",
+      "new_repo": "firecrawl/firecrawl"
+    }
+  ],
+  "errors_detail": []
+}

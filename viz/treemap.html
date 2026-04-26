@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ai-radar — treemap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --panel: #f6f8fa;
+      --border: #d0d7de;
+      --text: #1f2328;
+      --muted: #57606a;
+      --link: #555;
+      --link-hover: #a503fc;
+      /* deploy_status palette — color-blind safe (ColorBrewer-ish), paired
+         with emoji glyphs in the legend so hue is never the only channel. */
+      --prod: #2c7a3e;        /* 🟢 */
+      --beta: #b58105;        /* 🟡 */
+      --deprecated: #c04a4a;  /* 🔴 */
+      --untriaged: #8a929b;   /* — */
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      height: 100%;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); }
+
+    header.chrome {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+      flex-wrap: wrap;
+    }
+    header.chrome h1 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    header.chrome h1 .sub {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 13px;
+      margin-left: 6px;
+    }
+    header.chrome .summary {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    header.chrome .summary .num {
+      color: var(--text);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    header.chrome .controls {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-left: auto;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    header.chrome select,
+    header.chrome input[type="search"] {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3px 8px;
+      font: inherit;
+      margin-left: 4px;
+    }
+    header.chrome input[type="search"] { width: 200px; }
+    header.chrome select:focus,
+    header.chrome input[type="search"]:focus {
+      outline: 2px solid var(--link-hover);
+      outline-offset: 1px;
+      border-color: var(--link-hover);
+    }
+    header.chrome kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1px 5px;
+      color: var(--muted);
+    }
+
+    #chart {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 56px);
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .cell {
+      position: absolute;
+      overflow: hidden;
+      border: 1px solid #fff;
+      transition: opacity 0.1s ease, outline 0.1s ease;
+      cursor: pointer;
+    }
+    .cell:hover { outline: 2px solid var(--link-hover); outline-offset: -2px; z-index: 2; }
+    .cell:focus { outline: 2px solid var(--link-hover); outline-offset: -2px; z-index: 2; }
+    .cell.dim { opacity: 0.15; }
+    .cell .label {
+      padding: 4px 6px;
+      font-size: 11px;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.55);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      pointer-events: none;
+    }
+    .cell .label .metric {
+      font-size: 10px;
+      color: rgba(255,255,255,0.88);
+      font-variant-numeric: tabular-nums;
+    }
+    .category-label {
+      position: absolute;
+      pointer-events: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      padding: 3px 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .category-label .count {
+      color: var(--muted);
+      font-weight: 400;
+      margin-left: 4px;
+    }
+
+    #tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 12px;
+      max-width: 320px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      opacity: 0;
+      transition: opacity 0.08s ease;
+      z-index: 10;
+      color: var(--text);
+    }
+    #tooltip h3 {
+      margin: 0 0 2px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    #tooltip .repo {
+      color: var(--link);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      margin-bottom: 6px;
+      word-break: break-all;
+    }
+    #tooltip .badges { margin-bottom: 6px; font-size: 11px; }
+    #tooltip .badge {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 10px;
+      margin-right: 4px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--panel);
+    }
+    #tooltip .badge.prod       { color: #fff; background: var(--prod);       border-color: var(--prod); }
+    #tooltip .badge.beta       { color: #fff; background: var(--beta);       border-color: var(--beta); }
+    #tooltip .badge.deprecated { color: #fff; background: var(--deprecated); border-color: var(--deprecated); }
+    #tooltip table { border-collapse: collapse; width: 100%; }
+    #tooltip td { padding: 1px 0; }
+    #tooltip td:first-child { color: var(--muted); padding-right: 12px; }
+    #tooltip td:last-child  { text-align: right; font-variant-numeric: tabular-nums; }
+    #tooltip .notes {
+      margin-top: 6px; padding-top: 6px;
+      border-top: 1px dashed var(--border);
+      color: var(--text); font-style: italic;
+    }
+    #tooltip .hint {
+      margin-top: 6px; color: var(--muted); font-size: 10px;
+    }
+
+    .legend {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 60%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .legend .swatch {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      margin-right: 4px;
+      vertical-align: middle;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .legend .item { white-space: nowrap; color: var(--text); }
+
+    #empty {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 14px;
+      gap: 8px;
+      padding: 24px;
+      text-align: center;
+    }
+    #empty code {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1px 6px;
+      color: var(--text);
+    }
+    #empty .title { color: var(--text); font-weight: 700; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <header class="chrome">
+    <h1>ai-radar <span class="sub">treemap</span></h1>
+    <span class="summary" id="summary"></span>
+    <div class="controls" role="toolbar" aria-label="treemap controls">
+      <label>size by
+        <select id="metric" aria-label="size cells by metric">
+          <option value="stars" selected>stars</option>
+          <option value="forks">forks</option>
+          <option value="watchers">watchers</option>
+          <option value="contributors">contributors</option>
+          <option value="open_issues">open issues</option>
+          <option value="stars_30d">stars Δ30d</option>
+          <option value="stars_90d">stars Δ90d</option>
+        </select>
+      </label>
+      <label>color by
+        <select id="color" aria-label="color cells by attribute">
+          <option value="deploy_status" selected>deploy status</option>
+          <option value="velocity">velocity (stars Δ30d)</option>
+          <option value="language">language</option>
+          <option value="upstream">upstream status</option>
+        </select>
+      </label>
+      <label>filter
+        <input id="search" type="search" placeholder="tool, repo, license, language…"
+               aria-label="filter cells (substring match)" />
+      </label>
+      <span><kbd>/</kbd> focus filter · <kbd>Esc</kbd> clear · click cell → repo</span>
+    </div>
+  </header>
+
+  <div id="chart" role="application" aria-label="treemap of tracked tools">
+    <div id="empty">
+      <div class="title">No <code>data.json</code> yet</div>
+      <div>Generate it by running the <code>viz:treemap</code> stage of the sweep pipeline (see <code>RUNBOOK.md</code> §7.17), then reload.</div>
+      <div>Serve this directory with <code>python3 -m http.server -d viz 8080</code> and open <code>http://localhost:8080/treemap.html</code>. <code>file://</code> is intentionally unsupported.</div>
+    </div>
+    <div id="tooltip" role="tooltip"></div>
+    <div class="legend" id="legend" aria-live="polite"></div>
+  </div>
+
+  <script>
+    // ---- palette (mirrors RUNBOOK §3 deploy_status semantics) ----
+    const DEPLOY_COLOR = {
+      prod:       getCss('--prod'),
+      beta:       getCss('--beta'),
+      deprecated: getCss('--deprecated'),
+      untriaged:  getCss('--untriaged'),
+    };
+    const DEPLOY_GLYPH = { prod: '🟢', beta: '🟡', deprecated: '🔴', untriaged: '—' };
+    const DEPLOY_LABEL = { prod: 'prod', beta: 'beta', deprecated: 'deprecated', untriaged: 'untriaged' };
+
+    // upstream lifecycle (separate axis — RUNBOOK §3)
+    const UPSTREAM_COLOR = {
+      active:      '#2c7a3e',
+      maintenance: '#b58105',
+      dormant:     '#c87b1a',
+      archived:    '#6e7681',
+    };
+
+    function getCss(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+    function deployBucket(d) {
+      const v = (d && d.deploy_status) || null;
+      return (v === 'prod' || v === 'beta' || v === 'deprecated') ? v : 'untriaged';
+    }
+
+    const chart = document.getElementById('chart');
+    const tooltip = document.getElementById('tooltip');
+    const empty = document.getElementById('empty');
+    const summary = document.getElementById('summary');
+    const metricSel = document.getElementById('metric');
+    const colorSel = document.getElementById('color');
+    const search = document.getElementById('search');
+    const legend = document.getElementById('legend');
+
+    let DATA = null;
+
+    fetch('data.json', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(d => { DATA = d; render(); })
+      .catch(() => { empty.style.display = 'flex'; });
+
+    function leafValue(d, metric) {
+      const v = d[metric];
+      return Math.max(0, Number.isFinite(v) ? v : 0);
+    }
+
+    function colorFor(d, mode, scales) {
+      if (mode === 'deploy_status') return DEPLOY_COLOR[deployBucket(d)];
+      if (mode === 'upstream')      return UPSTREAM_COLOR[d.status] || UPSTREAM_COLOR.archived;
+      if (mode === 'velocity') {
+        const v = Number.isFinite(d.stars_30d) ? d.stars_30d : 0;
+        return scales.velocity(v);
+      }
+      if (mode === 'language') return scales.language(d.language || 'unknown');
+      return DEPLOY_COLOR.untriaged;
+    }
+
+    function fmt(n) {
+      if (n == null || !Number.isFinite(n)) return '—';
+      if (Math.abs(n) >= 1000) return d3.format('.2~s')(n);
+      return d3.format(',')(n);
+    }
+
+    function countLeaves(node) {
+      if (!node.children) return 1;
+      return node.children.reduce((acc, c) => acc + countLeaves(c), 0);
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    function render() {
+      chart.querySelectorAll('.cell, .category-label').forEach(el => el.remove());
+
+      const metric = metricSel.value;
+      const colorMode = colorSel.value;
+      const q = search.value.trim().toLowerCase();
+
+      const totalTools = countLeaves(DATA);
+      const cats = (DATA.children || []).length;
+      const snap = DATA.generated_at ? DATA.generated_at.slice(0, 10) : 'unknown';
+      summary.innerHTML =
+        `<span class="num">${totalTools}</span> tools across ` +
+        `<span class="num">${cats}</span> categories · snapshot ${escapeHtml(snap)}`;
+
+      const width = chart.clientWidth;
+      const height = chart.clientHeight;
+
+      const root = d3.hierarchy(DATA)
+        .sum(d => d.children ? 0 : leafValue(d, metric))
+        .sort((a, b) => b.value - a.value);
+
+      d3.treemap()
+        .tile(d3.treemapSquarify.ratio(1.4))
+        .size([width, height])
+        .paddingTop(d => d.depth === 1 ? 18 : 0)
+        .paddingInner(2)
+        .round(true)(root);
+
+      const allLeaves = root.leaves();
+      const velMax = d3.max(allLeaves, l => Math.max(0, l.data.stars_30d || 0)) || 1;
+      const scales = {
+        velocity: d3.scaleSequential(d3.interpolateYlGnBu).domain([0, velMax]),
+        language: d3.scaleOrdinal(d3.schemeTableau10),
+      };
+
+      // Category bars (depth 1)
+      root.children?.forEach(cat => {
+        const lbl = document.createElement('div');
+        lbl.className = 'category-label';
+        lbl.style.left = `${cat.x0}px`;
+        lbl.style.top = `${cat.y0}px`;
+        lbl.style.width = `${cat.x1 - cat.x0}px`;
+        lbl.innerHTML = `${escapeHtml(cat.data.name)}<span class="count">· ${cat.children?.length || 0}</span>`;
+        chart.appendChild(lbl);
+      });
+
+      // Tool cells (leaves)
+      allLeaves.forEach(leaf => {
+        const w = leaf.x1 - leaf.x0;
+        const h = leaf.y1 - leaf.y0;
+        if (w <= 0 || h <= 0) return;
+
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.tabIndex = 0;
+        cell.setAttribute('role', 'link');
+        cell.setAttribute('aria-label',
+          `${leaf.data.name} — ${fmt(leaf.data[metric])} ${metric}; deploy ${deployBucket(leaf.data)}; opens GitHub`);
+        cell.style.left = `${leaf.x0}px`;
+        cell.style.top = `${leaf.y0}px`;
+        cell.style.width = `${w}px`;
+        cell.style.height = `${h}px`;
+        cell.style.background = colorFor(leaf.data, colorMode, scales);
+
+        if (q) {
+          const hay = `${leaf.data.name} ${leaf.data.repo} ${leaf.data.license || ''} ${leaf.data.language || ''}`.toLowerCase();
+          if (!hay.includes(q)) cell.classList.add('dim');
+        }
+
+        if (w > 50 && h > 22) {
+          const label = document.createElement('div');
+          label.className = 'label';
+          label.innerHTML = `${escapeHtml(leaf.data.name)} <span class="metric">${fmt(leaf.data[metric])}</span>`;
+          cell.appendChild(label);
+        }
+
+        cell.addEventListener('mousemove', e => showTooltip(e, leaf.data));
+        cell.addEventListener('mouseleave', hideTooltip);
+        cell.addEventListener('focus', e => showTooltip({clientX: leaf.x0 + chart.getBoundingClientRect().left, clientY: leaf.y0 + chart.getBoundingClientRect().top}, leaf.data));
+        cell.addEventListener('blur', hideTooltip);
+        const open = () => { if (leaf.data.repo) window.open(`https://github.com/${leaf.data.repo}`, '_blank', 'noopener'); };
+        cell.addEventListener('click', open);
+        cell.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+        });
+
+        chart.appendChild(cell);
+      });
+
+      drawLegend(colorMode, scales, velMax, allLeaves);
+    }
+
+    function drawLegend(mode, scales, velMax, leaves) {
+      legend.innerHTML = '';
+      if (mode === 'deploy_status') {
+        for (const k of ['prod', 'beta', 'deprecated', 'untriaged']) {
+          legend.insertAdjacentHTML('beforeend',
+            `<span class="item"><span class="swatch" style="background:${DEPLOY_COLOR[k]}"></span>${DEPLOY_GLYPH[k]} ${DEPLOY_LABEL[k]}</span>`);
+        }
+      } else if (mode === 'upstream') {
+        for (const k of ['active', 'maintenance', 'dormant', 'archived']) {
+          legend.insertAdjacentHTML('beforeend',
+            `<span class="item"><span class="swatch" style="background:${UPSTREAM_COLOR[k]}"></span>${k}</span>`);
+        }
+      } else if (mode === 'velocity') {
+        legend.insertAdjacentHTML('beforeend',
+          `<span class="item">stars Δ30d</span>` +
+          `<span class="item">0</span>` +
+          `<span style="display:inline-block;width:140px;height:10px;background:linear-gradient(to right, ${scales.velocity(0)}, ${scales.velocity(velMax/2)}, ${scales.velocity(velMax)});border-radius:2px;border:1px solid rgba(0,0,0,0.06);"></span>` +
+          `<span class="item">${fmt(velMax)}</span>`);
+      } else if (mode === 'language') {
+        const langs = Array.from(new Set(leaves.map(l => l.data.language).filter(Boolean))).sort();
+        const top = langs.slice(0, 8);
+        for (const l of top) {
+          legend.insertAdjacentHTML('beforeend',
+            `<span class="item"><span class="swatch" style="background:${scales.language(l)}"></span>${escapeHtml(l)}</span>`);
+        }
+        if (langs.length > top.length) {
+          legend.insertAdjacentHTML('beforeend', `<span class="item">+${langs.length - top.length} more</span>`);
+        }
+      }
+    }
+
+    function showTooltip(e, d) {
+      const bucket = deployBucket(d);
+      const badges =
+        `<span class="badge ${bucket}">${DEPLOY_GLYPH[bucket]} deploy: ${DEPLOY_LABEL[bucket]}</span>` +
+        `<span class="badge">upstream: ${escapeHtml(d.status || '—')}</span>`;
+
+      const rows = [
+        ['stars', fmt(d.stars)],
+        ['forks', fmt(d.forks)],
+        ['watchers', fmt(d.watchers)],
+        ['contributors', fmt(d.contributors)],
+        ['open issues', fmt(d.open_issues)],
+        ['stars Δ30d', fmt(d.stars_30d)],
+        ['stars Δ90d', fmt(d.stars_90d)],
+        ['language', d.language || '—'],
+        ['license', d.license || '—'],
+        ['last push', d.pushed_at || '—'],
+      ];
+      tooltip.innerHTML =
+        `<h3>${escapeHtml(d.name)}</h3>` +
+        (d.repo ? `<div class="repo">${escapeHtml(d.repo)}</div>` : '') +
+        `<div class="badges">${badges}</div>` +
+        `<table>${rows.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table>` +
+        (d.notes ? `<div class="notes">${escapeHtml(d.notes)}</div>` : '') +
+        `<div class="hint">click to open repo on GitHub →</div>`;
+
+      const rect = chart.getBoundingClientRect();
+      const x = e.clientX - rect.left + 14;
+      const y = e.clientY - rect.top + 14;
+      const tw = tooltip.offsetWidth;
+      const th = tooltip.offsetHeight;
+      tooltip.style.left = `${Math.max(8, Math.min(x, rect.width - tw - 8))}px`;
+      tooltip.style.top  = `${Math.max(8, Math.min(y, rect.height - th - 8))}px`;
+      tooltip.style.opacity = '1';
+    }
+
+    function hideTooltip() { tooltip.style.opacity = '0'; }
+
+    metricSel.addEventListener('change', render);
+    colorSel.addEventListener('change', render);
+    search.addEventListener('input', render);
+    window.addEventListener('resize', () => DATA && render());
+
+    // Keyboard shortcuts: `/` focuses filter, Esc clears it.
+    document.addEventListener('keydown', e => {
+      const tag = (e.target && e.target.tagName) || '';
+      const typing = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        search.focus();
+        search.select();
+      } else if (e.key === 'Escape' && document.activeElement === search) {
+        search.value = '';
+        render();
+        search.blur();
+      }
+    });
+  </script>
+</body>
+</html>

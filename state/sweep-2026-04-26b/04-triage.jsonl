@@ -1,0 +1,6 @@
+{"repo": "langchain-ai/langchain", "decision": "add", "category": "agent-frameworks", "reason": "canonical tool from coverage checklist", "stars": 134933}
+{"repo": "langgenius/dify", "decision": "add", "category": "agent-frameworks", "reason": "canonical tool from coverage checklist", "stars": 139173}
+{"repo": "agno-agi/agno", "decision": "add", "category": "agent-frameworks", "reason": "canonical tool from coverage checklist", "stars": 39678}
+{"repo": "FlowiseAI/Flowise", "decision": "add", "category": "agent-frameworks", "reason": "canonical tool from coverage checklist", "stars": 52280}
+{"repo": "microsoft/graphrag", "decision": "add", "category": "rag-and-retrieval", "reason": "canonical tool from coverage checklist", "stars": 32505}
+{"repo": "google-gemini/gemini-cli", "decision": "add", "category": "code-agents", "reason": "canonical tool from coverage checklist", "stars": 102413}

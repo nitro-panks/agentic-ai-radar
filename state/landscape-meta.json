@@ -1,0 +1,248 @@
+{
+  "_comment": "Human-curated overlay for landscape.md. deploy_status: prod (\ud83d\udfe2) | beta (\ud83d\udfe1) | deprecated (\ud83d\udd34). Omit a key to leave a tool untriaged (\u2014 in the table).",
+  "langchain-ai/langgraph": {
+    "deploy_status": "prod",
+    "notes": "default for stateful agent flows",
+    "last_reviewed": "2026-04-26"
+  },
+  "crewAIInc/crewAI": {
+    "deploy_status": "beta",
+    "notes": "good when role/crew is the natural abstraction",
+    "last_reviewed": "2026-04-26"
+  },
+  "microsoft/autogen": {
+    "deploy_status": "beta",
+    "notes": "v0.4 split \u2014 re-evaluate after 0.5",
+    "last_reviewed": "2026-04-26"
+  },
+  "pydantic/pydantic-ai": {
+    "deploy_status": "prod",
+    "notes": "preferred when typing matters",
+    "last_reviewed": "2026-04-26"
+  },
+  "huggingface/smolagents": {
+    "deploy_status": "beta",
+    "notes": "code-execution agents; needs sandbox discipline",
+    "last_reviewed": "2026-04-26"
+  },
+  "vllm-project/vllm": {
+    "deploy_status": "prod",
+    "notes": "default GPU serving",
+    "last_reviewed": "2026-04-26"
+  },
+  "ollama/ollama": {
+    "deploy_status": "prod",
+    "notes": "default for laptop/dev",
+    "last_reviewed": "2026-04-26"
+  },
+  "ggml-org/llama.cpp": {
+    "deploy_status": "prod",
+    "notes": "CPU/edge fallback",
+    "last_reviewed": "2026-04-26"
+  },
+  "sgl-project/sglang": {
+    "deploy_status": "beta",
+    "notes": "great for prefix-cached agentic loops",
+    "last_reviewed": "2026-04-26"
+  },
+  "BerriAI/litellm": {
+    "deploy_status": "prod",
+    "notes": "default routing/proxy",
+    "last_reviewed": "2026-04-26"
+  },
+  "run-llama/llama_index": {
+    "deploy_status": "prod",
+    "notes": "broad RAG ecosystem",
+    "last_reviewed": "2026-04-26"
+  },
+  "deepset-ai/haystack": {
+    "deploy_status": "beta",
+    "notes": "production-leaning RAG",
+    "last_reviewed": "2026-04-26"
+  },
+  "infiniflow/ragflow": {
+    "deploy_status": "beta",
+    "notes": "strong PDF parsing; opinionated",
+    "last_reviewed": "2026-04-26"
+  },
+  "qdrant/qdrant": {
+    "deploy_status": "prod",
+    "notes": "default dedicated vector store",
+    "last_reviewed": "2026-04-26"
+  },
+  "weaviate/weaviate": {
+    "deploy_status": "beta",
+    "notes": "pick when hybrid search is central",
+    "last_reviewed": "2026-04-26"
+  },
+  "chroma-core/chroma": {
+    "deploy_status": "beta",
+    "notes": "prototype default; outgrow at scale",
+    "last_reviewed": "2026-04-26"
+  },
+  "pgvector/pgvector": {
+    "deploy_status": "prod",
+    "notes": "default when Postgres is in the stack",
+    "last_reviewed": "2026-04-26"
+  },
+  "milvus-io/milvus": {
+    "deploy_status": "beta",
+    "notes": "for hundreds-of-millions+ vectors",
+    "last_reviewed": "2026-04-26"
+  },
+  "promptfoo/promptfoo": {
+    "deploy_status": "prod",
+    "notes": "default eval-as-code in CI",
+    "last_reviewed": "2026-04-26"
+  },
+  "confident-ai/deepeval": {
+    "deploy_status": "beta",
+    "notes": "pytest-shaped LLM tests",
+    "last_reviewed": "2026-04-26"
+  },
+  "langfuse/langfuse": {
+    "deploy_status": "prod",
+    "notes": "default self-hosted obs+evals",
+    "last_reviewed": "2026-04-26"
+  },
+  "Arize-ai/phoenix": {
+    "deploy_status": "beta",
+    "notes": "OTel-native alternative",
+    "last_reviewed": "2026-04-26"
+  },
+  "modelcontextprotocol/modelcontextprotocol": {
+    "deploy_status": "prod",
+    "notes": "spec is canonical for tool integration",
+    "last_reviewed": "2026-04-26"
+  },
+  "browser-use/browser-use": {
+    "deploy_status": "beta",
+    "notes": "Python browser agent of choice",
+    "last_reviewed": "2026-04-26"
+  },
+  "browserbase/stagehand": {
+    "deploy_status": "beta",
+    "notes": "TS browser agent of choice",
+    "last_reviewed": "2026-04-26"
+  },
+  "Aider-AI/aider": {
+    "deploy_status": "prod",
+    "notes": "terminal pair-programmer",
+    "last_reviewed": "2026-04-26"
+  },
+  "cline/cline": {
+    "deploy_status": "prod",
+    "notes": "VS Code agent of choice",
+    "last_reviewed": "2026-04-26"
+  },
+  "NVIDIA/garak": {
+    "deploy_status": "prod",
+    "notes": "default pre-deploy red-team scanner",
+    "last_reviewed": "2026-04-26"
+  },
+  "Azure/PyRIT": {
+    "deploy_status": "beta",
+    "notes": "upstream archived; investigate successor (red-team toolkit)",
+    "last_reviewed": "2026-04-26"
+  },
+  "protectai/llm-guard": {
+    "deploy_status": "prod",
+    "notes": "default runtime input/output guardrails",
+    "last_reviewed": "2026-04-26"
+  },
+  "temporalio/temporal": {
+    "deploy_status": "prod",
+    "notes": "default durable runtime for long agents",
+    "last_reviewed": "2026-04-26"
+  },
+  "inngest/inngest": {
+    "deploy_status": "beta",
+    "notes": "TS/Node-friendly alternative",
+    "last_reviewed": "2026-04-26"
+  },
+  "mem0ai/mem0": {
+    "deploy_status": "beta",
+    "notes": "user-personalization memory",
+    "last_reviewed": "2026-04-26"
+  },
+  "letta-ai/letta": {
+    "deploy_status": "beta",
+    "notes": "stateful agents server (ex-MemGPT)",
+    "last_reviewed": "2026-04-26"
+  },
+  "pipecat-ai/pipecat": {
+    "deploy_status": "beta",
+    "notes": "real-time voice pipelines",
+    "last_reviewed": "2026-04-26"
+  },
+  "livekit/agents": {
+    "deploy_status": "beta",
+    "notes": "WebRTC-native voice agents",
+    "last_reviewed": "2026-04-26"
+  },
+  "unclecode/crawl4ai": {
+    "deploy_status": "beta",
+    "notes": "self-hosted alternative to Firecrawl",
+    "last_reviewed": "2026-04-26"
+  },
+  "docling-project/docling": {
+    "deploy_status": "prod",
+    "notes": "default PDF parser for RAG",
+    "last_reviewed": "2026-04-26"
+  },
+  "Unstructured-IO/unstructured": {
+    "deploy_status": "beta",
+    "notes": "fallback for heterogeneous file mix",
+    "last_reviewed": "2026-04-26"
+  },
+  "vibrantlabsai/ragas": {
+    "deploy_status": "prod",
+    "notes": "default RAG eval",
+    "last_reviewed": "2026-04-26"
+  },
+  "PrefectHQ/fastmcp": {
+    "deploy_status": "prod",
+    "notes": "default Python MCP server framework",
+    "last_reviewed": "2026-04-26"
+  },
+  "OpenHands/OpenHands": {
+    "deploy_status": "beta",
+    "notes": "longer-horizon autonomous coding",
+    "last_reviewed": "2026-04-26"
+  },
+  "firecrawl/firecrawl": {
+    "deploy_status": "prod",
+    "notes": "default web\u2192markdown for RAG",
+    "last_reviewed": "2026-04-26"
+  },
+  "langchain-ai/langchain": {
+    "deploy_status": "beta",
+    "notes": "predates LangGraph; broad ecosystem with mixed cohesion",
+    "last_reviewed": "2026-04-26"
+  },
+  "langgenius/dify": {
+    "deploy_status": "beta",
+    "notes": "agentic workflow platform with self-host UI",
+    "last_reviewed": "2026-04-26"
+  },
+  "agno-agi/agno": {
+    "deploy_status": "beta",
+    "notes": "formerly Phidata; multi-modal agent framework",
+    "last_reviewed": "2026-04-26"
+  },
+  "FlowiseAI/Flowise": {
+    "deploy_status": "beta",
+    "notes": "visual / drag-and-drop agent builder",
+    "last_reviewed": "2026-04-26"
+  },
+  "microsoft/graphrag": {
+    "deploy_status": "beta",
+    "notes": "graph-based RAG from Microsoft Research",
+    "last_reviewed": "2026-04-26"
+  },
+  "google-gemini/gemini-cli": {
+    "deploy_status": "beta",
+    "notes": "Google's official CLI agent for Gemini",
+    "last_reviewed": "2026-04-26"
+  }
+}
