@@ -109,16 +109,15 @@ Complements rather than competes with LlamaIndex / Haystack — usable as a retr
 <!-- repo: Mintplex-Labs/anything-llm -->
 
 #### What it is
-The all-in-one AI productivity accelerator. On device and privacy first with no annoying setup or configuration.
+Turnkey all-in-one chat-with-your-docs application: bundles ingestion, vector storage, multi-user workspaces, and an agent builder behind a desktop/Docker UI. Privacy-first defaults, runs locally with pluggable LLM and embedder providers.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- You want a deployable end-user product (multi-user ChatGPT-over-our-docs) without writing a RAG stack from scratch.
+- Non-developer teams need a self-hostable UI with document uploads, citations, and an MCP-compatible agent layer.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.85): AnythingLLM is a distinctive all-in-one RAG platform emphasizing privacy-first, on-device deployment with minimal setup. Unlike LlamaIndex or Haystack (frameworks), this is a complete turnkey application combining document ingestion, vector storage, and chat. Strong adoption (59k stars) and active development fill the "ready-to-run RAG solution" niche.
+- Embedding RAG into your own application code — reach for LlamaIndex or Haystack as libraries instead.
+- Heavy document parsing (complex PDFs, tables, layouts) — RAGFlow's parsing pipeline is stronger.
 
 #### Sources
 - Repo: https://github.com/Mintplex-Labs/anything-llm
@@ -129,19 +128,15 @@ The all-in-one AI productivity accelerator. On device and privacy first with no 
 <!-- repo: HKUDS/LightRAG -->
 
 #### What it is
-[EMNLP2025] "LightRAG: Simple and Fast Retrieval-Augmented Generation"
+EMNLP 2025 paper-and-implementation pairing entity/relation graph extraction with dual-level (local + global) retrieval. Pluggable storage backends (Postgres, Neo4j, MongoDB, OpenSearch) and a web UI for graph inspection.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- You want graph-based RAG with cheaper graph construction and incremental updates than the full GraphRAG pipeline.
+- Multi-hop or thematic queries where dual-level (entity-near + community-wide) retrieval beats vanilla similarity.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `run-llama/llama_index`, `deepset-ai/haystack`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.85): LightRAG is a peer-reviewed (EMNLP 2025) RAG implementation emphasizing simplicity and speed, differentiating it from heavier frameworks like LlamaIndex and Haystack. With 34K stars and active development, it represents a meaningful lightweight option for engineers prioritizing performance.
+- The Microsoft GraphRAG community-summary methodology is what you actually want — go straight to GraphRAG.
+- Plain similarity RAG over a small corpus — LlamaIndex with a vector store is simpler and cheaper to build.
 
 #### Sources
 - Repo: https://github.com/HKUDS/LightRAG
@@ -152,16 +147,15 @@ The all-in-one AI productivity accelerator. On device and privacy first with no 
 <!-- repo: khoj-ai/khoj -->
 
 #### What it is
-Your AI second brain. Self-hostable. Get answers from the web or your docs. Build custom agents, schedule automations, do deep research. Turn any online or local LLM into your personal, autonomous AI (gpt, claude, gemini, llama, qwen, mistral). Get started - free.
+Self-hostable personal-AI app: semantic search and chat over your notes, PDFs, Org/Markdown, Notion, plus the open web, with scheduled research and agent personas. Surfaces from browser, Obsidian, Emacs, desktop, mobile, or WhatsApp clients.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- An end-user "second brain" over personal docs and the web, with multi-client access (Obsidian/Emacs/mobile) out of the box.
+- You want scheduled deep-research and notification automations bundled with retrieval, not just a library.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.82): Khoj is a self-hostable AI assistant for personal knowledge management with RAG over documents, web search, custom agents, and automation. With 34k stars, it occupies a distinctive "AI second brain" niche combining RAG with personal productivity features, differentiating it from developer-focused frameworks already tracked.
+- Developer-focused RAG embedded in your own product — use LlamaIndex or Haystack instead.
+- Team/enterprise document chat with workspace permissions — anything-llm or RAGFlow is closer to that shape.
 
 #### Sources
 - Repo: https://github.com/khoj-ai/khoj
@@ -172,16 +166,15 @@ Your AI second brain. Self-hostable. Get answers from the web or your docs. Buil
 <!-- repo: VectifyAI/PageIndex -->
 
 #### What it is
-📑 PageIndex: Document Index for Vectorless, Reasoning-based RAG
+Vectorless, reasoning-based RAG: builds a hierarchical table-of-contents tree per document and lets an LLM tree-search it instead of doing similarity over chunks. Aimed at long professional documents (financial filings, regulations, textbooks) where similarity ≠ relevance.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Long structured documents where section hierarchy matters and chunk-similarity retrieval keeps missing the right passage.
+- You want explainable, traceable retrieval (page and section references) rather than opaque vector neighbors.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.75): PageIndex presents a distinctive "vectorless" RAG approach using reasoning-based document indexing rather than traditional embeddings. This differentiates it from embedding-centric tools already tracked. With 25K+ stars and active development, it represents a novel retrieval paradigm worth tracking.
+- Large heterogeneous corpora where TOC trees per document don't compose — LlamaIndex with a vector store fits better.
+- Cross-document synthesis driven by entity relationships — GraphRAG (or LightRAG) is the right shape.
 
 #### Sources
 - Repo: https://github.com/VectifyAI/PageIndex
@@ -192,19 +185,15 @@ Your AI second brain. Self-hostable. Get answers from the web or your docs. Buil
 <!-- repo: neuml/txtai -->
 
 #### What it is
-💡 All-in-one AI framework for semantic search, LLM orchestration and language model workflows
+Single-package framework whose core is an embeddings database unifying sparse + dense vector indexes, graph networks, and a relational store, with pipelines, workflows, and agents layered on top. Apache-2.0, low-footprint, with bindings for JS/Java/Rust/Go and an MCP API.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- You want one batteries-included Python dependency that handles embeddings, semantic search, and LLM workflows without wiring a separate vector store.
+- Multimodal indexing (text/audio/image/video) inside a single embeddings index, served via FastAPI or MCP.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `run-llama/llama_index`, `deepset-ai/haystack`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.82): txtai is an established all-in-one framework for semantic search and RAG workflows with integrated vector database. While it overlaps with LlamaIndex and Haystack, it offers a distinctive single-package approach combining embeddings, search, and LLM orchestration. 12K+ stars and active maintenance suggest real adoption.
+- Large RAG systems needing rich connectors, query engines, and a wide ecosystem — LlamaIndex's surface area is bigger.
+- Typed production pipelines with explicit component contracts — Haystack's pipeline model fits better.
 
 #### Sources
 - Repo: https://github.com/neuml/txtai

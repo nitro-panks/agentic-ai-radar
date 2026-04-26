@@ -1,6 +1,6 @@
 {
-  "name": "ai-radar",
-  "generated_at": "2026-04-26T17:33:28Z",
+  "name": "agentic-ai-radar",
+  "generated_at": "2026-04-26T17:56:15Z",
   "children": [
     {
       "name": "agent-frameworks",
@@ -906,7 +906,7 @@
           "forks": 13,
           "watchers": 7,
           "open_issues": 6,
-          "contributors": 0,
+          "contributors": null,
           "stars_30d": null,
           "stars_90d": null,
           "pushed_at": "2026-04-25",
@@ -1560,7 +1560,7 @@
           "name": "PyRIT",
           "repo": "Azure/PyRIT",
           "deploy_status": "beta",
-          "status": "archived",
+          "status": "active",
           "stars": 18,
           "forks": 1,
           "watchers": 0,

@@ -121,19 +121,15 @@ Distributed vector DB designed for very large scale. Cloud-native architecture; 
 <!-- repo: yichuan-w/LEANN -->
 
 #### What it is
-[MLsys2026]: RAG on Everything with LEANN. Enjoy 97% storage savings while running a fast, accurate, and 100% private RAG application on your personal device.
+Research-backed embedded index for on-device RAG. Uses graph-based selective recomputation and high-degree preserving pruning to skip storing per-vector embeddings, trading compute for radically smaller indexes.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Personal/private RAG over messy local data (files, mail, browser history, chat logs) on a single laptop where storage is the binding constraint.
+- You want a semantic search MCP that drops into Claude Code or similar agent runtimes without shipping data to the cloud.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `chroma-core/chroma`, `qdrant/qdrant`, `milvus-io/milvus`, `weaviate/weaviate`, `pgvector/pgvector`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.75): LEANN is a research-backed vector database optimized for on-device RAG with 97% storage savings. Its focus on local, private deployment with extreme compression represents a distinctive niche versus scale-focused vector stores. MLsys2026 citation and MIT license suggest legitimate infrastructure worth tracking.
+- Multi-tenant or server-side workloads with concurrent writers — reach for `qdrant/qdrant` instead.
+- Hundreds of millions of vectors across a cluster — `milvus-io/milvus` is the right shape.
 
 #### Sources
 - Repo: https://github.com/yichuan-w/LEANN
@@ -144,16 +140,14 @@ Distributed vector DB designed for very large scale. Cloud-native architecture; 
 <!-- repo: oramasearch/orama -->
 
 #### What it is
-🌌  A complete search engine and RAG pipeline in your browser, server or edge network with support for full-text, vector, and hybrid search in less than 2kb.
+Tiny TypeScript search engine that ships full-text, vector, and hybrid (BM25 + vector) search in a footprint small enough to run inside the browser, a Worker, or an edge function.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Client-side or edge RAG where the index ships with the bundle and queries never leave the device — docs sites, in-app help, edge personalization.
+- JS/TS-native stacks that want one library covering BM25, typo tolerance, facets, and vector search without standing up a service.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.82): Orama is a sub-2kb vector database and search engine for browser, edge, and server with full-text, vector, and hybrid search. Unlike existing tracked vector stores (Chroma, Milvus, Qdrant, Weaviate, pgvector) which are server-side, Orama's tiny footprint and edge/browser-first design fill a clear niche for embedded RAG scenarios.
+- Server-side workloads holding more than a single machine's worth of vectors — use `qdrant/qdrant` for a dedicated engine, or `weaviate/weaviate` if hybrid search at scale is the centerpiece.
 
 #### Sources
 - Repo: https://github.com/oramasearch/orama
@@ -164,19 +158,15 @@ Distributed vector DB designed for very large scale. Cloud-native architecture; 
 <!-- repo: lancedb/lancedb -->
 
 #### What it is
-Developer-friendly OSS embedded retrieval library for multimodal AI. Search More; Manage Less.
+Embedded multimodal "lakehouse" for AI: vector + full-text + SQL over the Lance columnar format, with zero-copy versioning and object-store-native storage so the same files back search, training, and analytics.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Multimodal corpora (images, video, point clouds, text) where you want vector search, SQL filters, and dataloader access against the same underlying files.
+- Embedded retrieval in Python/TS/Rust apps that need to outgrow a notebook prototype without standing up a cluster — replaces a `chroma-core/chroma` default once data lives on S3/GCS.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `chroma-core/chroma`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.92): LanceDB is a distinctive embedded vector database optimized for multimodal AI retrieval. Its embedded architecture differentiates it from server-based options like Milvus/Qdrant, while its multimodal focus and Lance columnar format backing distinguish it from Chroma. At 10K+ stars, it's a real tool engineers evaluate.
+- A live, multi-writer transactional service where embeddings must stay consistent with relational rows — use `pgvector/pgvector`.
+- A pure dedicated-server vector engine with rich filtering primitives — `qdrant/qdrant` is more focused.
 
 #### Sources
 - Repo: https://github.com/lancedb/lancedb
@@ -187,16 +177,14 @@ Developer-friendly OSS embedded retrieval library for multimodal AI. Search More
 <!-- repo: alibaba/zvec -->
 
 #### What it is
-A lightweight, lightning-fast, in-process vector database
+SQLite-shaped in-process vector database from Alibaba: dense + sparse vectors, hybrid filters, WAL-backed durability, and multi-reader / single-writer concurrency, with Python/Node/C bindings.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Embedding an ANN index inside a CLI, agent, or service that wants durability and hybrid filtering without running a separate database process.
+- Battle-tested production constraints (WAL, crash safety) in an embedded form — a step up from `chroma-core/chroma` when prototype-grade persistence isn't enough but you still don't want a server.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.85): zvec is an in-process vector database from Alibaba, offering a distinct deployment model from tracked server-based solutions (Chroma, Milvus, Qdrant, Weaviate) and pgvector. Its "lightweight, in-process" positioning fills the SQLite-like niche for embedded vector search without a separate service. 9.5k stars and active development.
+- Multi-tenant or distributed serving where many writers and replicas matter — use `qdrant/qdrant`, or `milvus-io/milvus` once you push past a single node.
 
 #### Sources
 - Repo: https://github.com/alibaba/zvec
@@ -207,19 +195,15 @@ A lightweight, lightning-fast, in-process vector database
 <!-- repo: activeloopai/deeplake -->
 
 #### What it is
-Deeplake is AI Data Runtime for Agents. It provides serverless postgres with a multimodal datalake, enabling scalable retrieval and training.
+Serverless multimodal data lake from Activeloop that doubles as a vector store: tensors, embeddings, images, video, and DICOM live in the same versioned format on object storage, with PyTorch/TF dataloaders and LangChain/LlamaIndex hooks.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Teams that want one substrate for both training datasets and RAG retrieval over heavy multimodal data, with versioning and lineage instead of a separate vector service.
+- Cloud-resident corpora (S3/GCS/Azure) where streaming to trainers and serving similarity search from the same files is the win.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `chroma-core/chroma`, `qdrant/qdrant`, `weaviate/weaviate`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.82): Deep Lake is a multimodal vector database for AI agents emphasizing images, video, and text with versioning and streaming for retrieval and training. Unlike tracked pure vector stores, it bridges storage and training pipelines with "AI Data Runtime" positioning. 9.1k stars, actively maintained.
+- Pure low-latency text RAG with rich payload filters — `qdrant/qdrant` is leaner.
+- Hybrid BM25 + vector retrieval as the central pattern — `weaviate/weaviate` ships that out of the box.
 
 #### Sources
 - Repo: https://github.com/activeloopai/deeplake

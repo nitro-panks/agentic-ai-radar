@@ -153,19 +153,15 @@ Tool-integration platform delivering a large catalog of pre-built third-party to
 <!-- repo: yusufkaraaslan/Skill_Seekers -->
 
 #### What it is
-Convert documentation websites, GitHub repositories, and PDFs into Claude AI skills with automatic conflict detection
+Knowledge-ingestion layer that turns heterogeneous sources — docs sites, GitHub repos, PDFs, videos, notebooks, wikis — into structured assets ready to be loaded as Claude/Gemini/OpenAI skills, RAG corpora, or coding-assistant context. Includes conflict detection across imports.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- You need to convert a multi-source backlog (docs + repos + PDFs + recordings) into a single Claude-skill or RAG-ready bundle as one ingestion step rather than per-source pipelines.
+- You want pre-built configs for common targets (the SkillSeekersWeb registry) instead of authoring extraction logic per source type.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `modelcontextprotocol/modelcontextprotocol`, `PrefectHQ/fastmcp`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.75): Distinctive MCP server builder that converts docs, GitHub repos, and PDFs into Claude skills with automatic conflict detection. Addresses upstream knowledge ingestion for MCP—complementary to FastMCP (authoring SDK) and the spec itself. 13K stars, recently active, solves real integration pain.
+- You already have a custom RAG pipeline and only need raw markdown — Firecrawl or Docling are the right primitives at that lower layer.
+- Single-source ingestion (just one repo, just one docs site) — Skill_Seekers's multi-source value isn't earned; lighter tooling is fine.
 
 #### Sources
 - Repo: https://github.com/yusufkaraaslan/Skill_Seekers
@@ -176,19 +172,15 @@ Convert documentation websites, GitHub repositories, and PDFs into Claude AI ski
 <!-- repo: mcp-use/mcp-use -->
 
 #### What it is
-The fullstack MCP framework to develop MCP Apps for ChatGPT / Claude & MCP Servers for AI Agents.
+Fullstack MCP framework — covers both sides of the protocol: MCP servers (the tool surface) AND MCP apps (the client/consumer surface that ships in ChatGPT or Claude). TS and Python SDKs, an MCP Inspector for testing, and a managed deployment target (Manufact MCP Cloud).
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- You're authoring both ends — an MCP app and the servers it talks to — and want a unified SDK + inspector + deploy story instead of stitching tools per side.
+- You want a managed deployment path (Manufact) where pushing to GitHub gives you a hosted MCP server with observability and branch deploys.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `modelcontextprotocol/modelcontextprotocol`, `PrefectHQ/fastmcp`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.82): Fullstack MCP framework for developing both MCP apps (ChatGPT/Claude integrations) and MCP servers for agents. Goes beyond the protocol spec or simple SDKs to provide higher-level development tooling. Active maintenance, nearly 10k stars, and distinct positioning warrant addition.
+- You're only writing one MCP server in Python — FastMCP is more focused; mcp-use's value compounds when you're shipping a client app too.
+- You want self-host-only with no SaaS dependency in the loop — mcp-use's Manufact integration is opt-in but the framing leans toward it.
 
 #### Sources
 - Repo: https://github.com/mcp-use/mcp-use
@@ -199,16 +191,15 @@ The fullstack MCP framework to develop MCP Apps for ChatGPT / Claude & MCP Serve
 <!-- repo: zilliztech/claude-context -->
 
 #### What it is
-Code search MCP for Claude Code. Make entire codebase the context for any coding agent.
+MCP server that indexes a codebase into a vector database (Zilliz Cloud) and exposes semantic code search to coding agents. Instead of loading entire directories per turn, the agent issues a query and gets back only the relevant code spans.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Large codebase where loading directories per turn balloons context cost — vector-indexed search compresses cost dramatically and keeps the agent on the relevant surface.
+- You're already on Zilliz Cloud / Milvus, or you're comfortable operating a managed vector DB just for code retrieval.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.82): MCP server providing semantic code search for coding agents, making entire codebases accessible as context. Distinctive implementation focused on code-search use case, complementing the protocol and SDK already tracked. Solid adoption (9.4k stars) with recent activity.
+- Small or medium codebase that fits in context — full-tree loading is simpler and you skip the vector-DB dependency entirely.
+- Symbol-level structural operations (rename, refactor) are the goal — Serena is the right shape; claude-context is search/retrieval, not editing.
 
 #### Sources
 - Repo: https://github.com/zilliztech/claude-context
@@ -219,19 +210,15 @@ Code search MCP for Claude Code. Make entire codebase the context for any coding
 <!-- repo: grab/cursor-talk-to-figma-mcp -->
 
 #### What it is
-TalkToFigma: MCP integration between AI Agent (Cursor, Claude Code) and Figma, allowing Agentic AI to communicate with Figma for reading designs and modifying them programmatically.
+MCP bridge between coding agents (Cursor, Claude Code) and Figma. Ships an MCP server, a Figma plugin, and a WebSocket relay so the agent can read design files and apply programmatic changes — bulk text replacement, instance-override propagation across components, etc.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Design-engineering loop where the agent should both read design state and apply structured changes back — repetitive Figma operations (rename instances, propagate overrides) are exactly the shape this tool addresses.
+- You want an MCP-shaped Figma surface usable across Cursor/Claude Code instead of writing per-client integrations.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `modelcontextprotocol/modelcontextprotocol`, `PrefectHQ/fastmcp`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.82): TalkToFigma is a concrete MCP server bridging AI agents with Figma's API for programmatic design reading and modification. It provides distinctive vertical integration (design tools ↔ agents) beyond generic MCP implementations, addressing a real workflow need for AI-driven Figma manipulation.
+- Read-only inspection of Figma — the official Figma REST API plus a thin tool wrapper is simpler.
+- Agent doesn't touch Figma at all — too narrow.
 
 #### Sources
 - Repo: https://github.com/grab/cursor-talk-to-figma-mcp
@@ -242,16 +229,15 @@ TalkToFigma: MCP integration between AI Agent (Cursor, Claude Code) and Figma, a
 <!-- repo: getsentry/XcodeBuildMCP -->
 
 #### What it is
-A Model Context Protocol (MCP) server and CLI that provides tools for agent use when working on iOS and macOS projects.
+MCP server (and CLI) from Sentry that wraps `xcodebuild`, simulator control, and the surrounding iOS/macOS toolchain into agent-friendly tools. Drop-in client configs for Cursor, Claude Code, and Codex; install via Homebrew or npm.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Coding agent on an iOS or macOS project — XcodeBuildMCP turns build/test/simulator operations into structured tool calls instead of brittle shelling-out to `xcodebuild`.
+- You want an installed agent skill that primes the model with how to use the surface, not raw command help.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.85): XcodeBuildMCP is a concrete MCP server for iOS/macOS development—building, testing, and debugging Xcode projects via agents. Fills a clear mobile-dev niche distinct from general MCP frameworks. From Sentry (credible), MIT-licensed, actively maintained.
+- Cross-platform or non-Apple work — irrelevant; the value is fully Xcode-bound.
+- Single one-off `xcodebuild` invocation — shelling out is simpler than installing the MCP.
 
 #### Sources
 - Repo: https://github.com/getsentry/XcodeBuildMCP
@@ -262,19 +248,15 @@ A Model Context Protocol (MCP) server and CLI that provides tools for agent use 
 <!-- repo: the-open-agent/openagent -->
 
 #### What it is
-⚡️AI Cloud OS: Open-source enterprise-level AI knowledge base and MCP (model-context-protocol)/A2A (agent-to-agent) management platform with admin UI, user management and Single-Sign-On⚡️, supports ChatGPT, Claude, Llama, Ollama, HuggingFace, etc., chat bot demo: https://ai.casibase.com, admin UI demo: https://ai-admin.casibase.com
+Self-hosted enterprise platform combining an AI knowledge base with MCP/A2A server management, admin UI, multi-user accounts, and SSO. React frontend, Go + Python backend, MySQL state. Supports many model providers (ChatGPT, Claude, Llama, Ollama, HuggingFace).
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- You need a multi-tenant MCP/A2A platform with SSO and an admin UI for an organization — a finished product to deploy, not a library to compose.
+- Knowledge-base + tool-management as one system makes sense for the deployment shape (e.g., an internal IT-managed AI portal).
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `modelcontextprotocol/modelcontextprotocol`, `PrefectHQ/fastmcp`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.75): Enterprise MCP management platform with admin UI, SSO, and user management. Fills a distinct operational/deployment niche versus the MCP spec itself and FastMCP's SDK. Go-based with 4.5k stars and active maintenance.
+- Single-developer or small-team setup — openagent's scope (admin UI, SSO, MySQL) is overkill; FastMCP plus a couple of MCP servers is the right size.
+- You prefer a library you control over a product-shaped platform — openagent imposes its own UX and deployment posture.
 
 #### Sources
 - Repo: https://github.com/the-open-agent/openagent
@@ -285,19 +267,15 @@ A Model Context Protocol (MCP) server and CLI that provides tools for agent use 
 <!-- repo: IBM/mcp-context-forge -->
 
 #### What it is
-An AI Gateway, registry, and proxy that sits in front of any MCP, A2A, or REST/gRPC APIs, exposing a unified endpoint with centralized discovery, guardrails and management. Optimizes Agent & Tool calling, and supports plugins.
+IBM's open-source registry and proxy that federates MCP, A2A, and REST/gRPC tool surfaces behind one MCP endpoint. Tools/Agents/API gateways with centralized auth, rate limiting, retries, plugin extensibility, and OpenTelemetry tracing into Phoenix/Jaeger/Zipkin. Scales to multi-cluster Kubernetes with Redis-backed federation.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Enterprise environment with many tool servers across protocols (MCP + REST + gRPC + A2A) and you need governance, discovery, and observability over the whole fleet — a control plane, not just a server.
+- You explicitly need OTel tracing across the tool layer and reverse-proxy concerns (auth, rate limiting) to live in one place.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `modelcontextprotocol/modelcontextprotocol`, `PrefectHQ/fastmcp`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.82): An AI gateway/proxy that unifies MCP, A2A, and REST/gRPC APIs behind a single endpoint with discovery, guardrails, and management. Addresses enterprise tool orchestration concerns (registry, governance, multi-protocol) that neither the MCP protocol spec nor FastMCP SDK handle. IBM-backed, Apache-2.0, actively maintained.
+- Single MCP server with a handful of tools — a federated registry is overkill; FastMCP alone is the right size.
+- You don't run on Kubernetes or want centralized federation — context-forge's design center pulls toward that posture.
 
 #### Sources
 - Repo: https://github.com/IBM/mcp-context-forge
@@ -308,16 +286,15 @@ An AI Gateway, registry, and proxy that sits in front of any MCP, A2A, or REST/g
 <!-- repo: blazickjp/arxiv-mcp-server -->
 
 #### What it is
-A Model Context Protocol server for searching and analyzing arXiv papers
+Narrow MCP server bridging AI assistants to arXiv — paper search with date/category filters, paper download, a local library of fetched papers. Distributed via PyPI / `uvx` and integrated with VS Code, Cursor, Kiro, and Smithery.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Research-drafting or literature-review agent that needs first-class paper retrieval — the agent should search arXiv directly rather than scrape it via a generic web tool.
+- You want a working example of a focused, single-domain MCP server you can install in a minute.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.80): A concrete MCP server for arXiv paper search and analysis. Fills a practical niche (academic research retrieval) in the MCP ecosystem, complementing the protocol spec already tracked. Demonstrates real-world MCP server implementation engineers would deploy for research-oriented agents.
+- Industry research / non-arXiv source mix — too narrow; a general web fetch via Firecrawl plus a search API covers the broader case.
+- One-shot paper fetch — `arxiv` Python lib or `curl` against the export API is simpler than running an MCP server.
 
 #### Sources
 - Repo: https://github.com/blazickjp/arxiv-mcp-server
@@ -328,19 +305,15 @@ A Model Context Protocol server for searching and analyzing arXiv papers
 <!-- repo: metatool-ai/metamcp -->
 
 #### What it is
-MCP Aggregator, Orchestrator, Middleware, Gateway in one docker
+MCP-to-MCP proxy that dynamically aggregates multiple upstream MCP servers into a single unified MCP endpoint. Adds namespacing, middleware (auth, transformations), an inspector, and tool overrides. Itself an MCP server, so any client (Cursor, Claude Desktop, etc.) can plug into it transparently.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- You operate several MCP servers and want clients to see one aggregated surface — namespaces collide cleanly, middleware applies centrally, and you can rename or rewrite tool annotations without forking the upstream server.
+- You want a Docker-deployable proxy with an inspector for debugging the merged surface.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `modelcontextprotocol/modelcontextprotocol`, `PrefectHQ/fastmcp`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.75): MetaMCP provides MCP aggregation, orchestration, and gateway infrastructure in a single Docker deployment. While the MCP protocol spec and FastMCP SDK are tracked, this fills a different niche as middleware for managing multiple MCP servers—useful for production deployments that need centralized routing.
+- Single MCP server in scope — a proxy adds a hop and a moving part with no compounding win.
+- You need the broader enterprise control-plane (registry, OTel, multi-cluster) — ContextForge is the right shape; metamcp is lighter-weight middleware.
 
 #### Sources
 - Repo: https://github.com/metatool-ai/metamcp
@@ -351,16 +324,15 @@ MCP Aggregator, Orchestrator, Middleware, Gateway in one docker
 <!-- repo: taylorwilsdon/google_workspace_mcp -->
 
 #### What it is
-Control Gmail, Google Calendar, Docs, Sheets, Slides, Chat, Forms, Tasks, Search & Drive with AI - Comprehensive Google Workspace / G Suite MCP Server & CLI Tool
+Comprehensive single MCP server covering the breadth of Google Workspace — Calendar, Drive, Gmail, Docs, Sheets, Slides, Forms, Tasks, Contacts, Chat — with native OAuth 2.1, multi-user support, stateless mode, and external-auth-server integration. Also ships a CLI for use with Claude Code / Codex.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Agent needs broad Google Workspace coverage and you want one MCP server with multi-user OAuth, not per-service stitching — especially for hosted assistants acting on behalf of org users.
+- You need self-hostable infrastructure with org-wide central auth (OAuth 2.1, external auth server) rather than a SaaS Workspace integration.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.85): Comprehensive MCP server exposing Google Workspace APIs (Gmail, Calendar, Docs, Sheets, Drive, etc.) to AI agents. Distinctive, batteries-included integration for a major productivity suite. Complements the MCP spec and FastMCP framework with concrete tooling engineers need for Google service interaction.
+- Calendar-only or Gmail-only flow — a narrower MCP (or direct Google API call) is simpler than the full server's surface.
+- You can't grant the broad Workspace OAuth scopes the server needs — wrong tool for that constraint.
 
 #### Sources
 - Repo: https://github.com/taylorwilsdon/google_workspace_mcp

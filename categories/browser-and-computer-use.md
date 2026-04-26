@@ -63,16 +63,13 @@ TS browser automation that mixes Playwright code with `act/extract/observe` LLM 
 <!-- repo: lightpanda-io/browser -->
 
 #### What it is
-Lightpanda: the headless browser designed for AI and automation
+Lightpanda: a headless browser written from scratch in Zig (not a Chromium fork) designed for AI and automation. Speaks CDP, so Puppeteer/Playwright clients connect unchanged.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- High-volume crawling/scraping where memory and per-page latency dominate cost — swap it in as the CDP endpoint behind Browser-Use or any Playwright script to collapse the resource footprint of headless Chrome.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.85): Lightpanda is a purpose-built headless browser in Zig, explicitly designed for AI and automation. Unlike Browser-Use and Stagehand which wrap Playwright/Puppeteer, it offers a distinctive native implementation optimized for performance. With 29K stars and active development, it's a real infrastructure choice.
+- Anything that needs full web-platform fidelity (complex SPAs, CORS, niche Web APIs) — Lightpanda is still in beta with partial coverage; fall back to Steel Browser or plain headless Chrome driven by Browser-Use.
 
 #### Sources
 - Repo: https://github.com/lightpanda-io/browser
@@ -83,19 +80,13 @@ Lightpanda: the headless browser designed for AI and automation
 <!-- repo: Skyvern-AI/skyvern -->
 
 #### What it is
-Automate browser based workflows with AI
+Playwright extension that adds vision-LLM-driven `act/extract/validate` primitives plus a no-code workflow builder, with managed cloud (CAPTCHA solvers, proxies) on top.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Long-tail RPA-shaped workflows across many unfamiliar sites (insurance quoting, government portals, vendor onboarding) where vision-based reasoning beats DOM selectors and where non-engineers need to author the flows.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `browser-use/browser-use`, `browserbase/stagehand`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.85): Skyvern uses AI vision models to automate browser workflows, distinct from browser-use's API approach and Stagehand's DOM automation. Vision-based interaction makes it resilient to UI changes. 21K+ stars, actively maintained, represents a legitimate alternative approach worth evaluating.
+- A developer-first programmatic agent in code — Browser-Use (Python) or Stagehand (TS) give a tighter feedback loop without the workflow-builder surface area.
 
 #### Sources
 - Repo: https://github.com/Skyvern-AI/skyvern
@@ -106,19 +97,13 @@ Automate browser based workflows with AI
 <!-- repo: alibaba/page-agent -->
 
 #### What it is
-JavaScript in-page GUI agent. Control web interfaces with natural language.
+Embeddable in-page JavaScript agent that drives the user's own DOM via text-based extraction (no screenshots, no headless browser, no backend). Bring-your-own-LLM, with an optional Chrome extension and MCP server for multi-page reach.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Shipping an in-product AI copilot that drives the existing web UI of a SaaS/ERP/CRM — drop in a `<script>` tag and turn multi-click flows into one prompt without rewriting the backend or running a server-side browser.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `browser-use/browser-use`, `browserbase/stagehand`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.85): Page-agent offers a distinctive in-page JavaScript approach to browser automation with natural language, contrasting with the Python-based external orchestration of browser-use and Stagehand. This fills a gap for embedded GUI control scenarios. With 17K stars and MIT license, it's established enough to track.
+- Server-side automation, scraping, or any task that needs to run without a real user's browser tab — the project explicitly disclaims that shape; reach for Browser-Use or Stagehand instead.
 
 #### Sources
 - Repo: https://github.com/alibaba/page-agent
@@ -129,16 +114,13 @@ JavaScript in-page GUI agent. Control web interfaces with natural language.
 <!-- repo: pinchtab/pinchtab -->
 
 #### What it is
-High-performance browser automation bridge and multi-instance orchestrator with advanced stealth injection and real-time dashboard.
+Small Go daemon that exposes a local HTTP/MCP control plane over Chrome, with named profiles, headed/headless instances, and accessibility-tree extraction tuned for token efficiency.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- A single-user, local-first browser runtime an agent on your machine can share — when you want one persistent Chrome with logged-in profiles addressable from CLI, MCP, or curl, instead of spawning a new Playwright per task.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.75): High-performance Go-based browser automation bridge with multi-instance orchestration, stealth injection, and real-time dashboard. Distinct from tracked Python tools (Browser-Use, Stagehand) by targeting production-scale fleet management with advanced evasion. Fills an infrastructure gap for enterprise browser automation.
+- Multi-tenant or hosted browser-as-a-service deployments — PinchTab is explicit that it is not designed for public-internet exposure; use Steel Browser or a managed offering for that shape.
 
 #### Sources
 - Repo: https://github.com/pinchtab/pinchtab
@@ -149,19 +131,13 @@ High-performance browser automation bridge and multi-instance orchestrator with 
 <!-- repo: steel-dev/steel-browser -->
 
 #### What it is
-🔥 Open Source Browser API for AI Agents & Apps. Steel Browser is a batteries-included browser sandbox that lets you automate the web without worrying about infrastructure.
+Self-hostable browser-as-a-service: a Dockerized Chrome sandbox exposing a REST API and CDP endpoint, with built-in session management, proxy rotation, stealth, and extension support. The open-source counterpart to Browserbase.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- The infrastructure layer underneath an agent framework — when you've already picked Browser-Use or Stagehand and need durable sessions, IP rotation, and one-shot conversion endpoints (markdown/PDF/screenshot) without building the browser pool yourself.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### How it fits with other tools
-- Possible overlap with: `browser-use/browser-use`, `browserbase/stagehand`
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.82): Steel Browser is a batteries-included browser automation sandbox for AI agents, offering managed infrastructure. It addresses a different sub-shape than Browser-Use and Stagehand: hosted browser infrastructure vs. agent-focused frameworks, solving the operational burden of browser automation at scale.
+- The agent loop itself — Steel is the runtime, not the brain; pair it with Browser-Use or Stagehand rather than expecting it to plan or extract on its own.
 
 #### Sources
 - Repo: https://github.com/steel-dev/steel-browser
@@ -172,16 +148,13 @@ High-performance browser automation bridge and multi-instance orchestrator with 
 <!-- repo: jo-inc/camofox-browser -->
 
 #### What it is
-Stealth headless browser for AI agents — bypass Cloudflare, bot detection, and anti-scraping. Drop-in Puppeteer/Playwright replacement.
+REST/MCP server wrapping Camoufox (a Firefox fork that spoofs fingerprints at the C++ level), serving accessibility snapshots with stable element refs, search macros, and per-session isolation tuned for agent token budgets.
 
 #### When to reach for it
-- _TODO — needs human review (auto-triaged stub)._
+- Reaching sites that aggressively fingerprint or block automated browsers (Cloudflare, Google, social platforms) where stealth-plugin-on-Chrome stacks have started losing — the C++-level patches sit below anything JS-level detectors can probe.
 
 #### When not to
-- _TODO — needs human review (auto-triaged stub)._
-
-#### Triage notes
-- Auto-triaged 2026-04-26 (Instructor-scored, confidence 0.85): Stealth browser designed for AI agents with anti-detection capabilities (Cloudflare bypass, bot evasion). Offers a distinct niche from Browser-Use and Stagehand by focusing on stealth-layer infrastructure rather than high-level interaction abstractions.
+- Sites you can already reach with vanilla headless Chrome — the stealth premium isn't free (Firefox-only, ~300MB Camoufox download, slower than Chromium); use Steel Browser or Browser-Use on stock Chrome instead.
 
 #### Sources
 - Repo: https://github.com/jo-inc/camofox-browser
